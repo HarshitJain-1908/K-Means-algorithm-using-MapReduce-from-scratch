@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message DataPoint {
+  int32 id = 1;
+  repeated float features = 2;
+}
+
+message KeyValuePair {
+  int32 key = 1;
+  DataPoint value = 2;
+}
+
+message InputSplitResponse {
+  int32 split_id = 1;
+  repeated DataPoint data_points = 2;
+}
+
+message PartitionRequest {
+  int32 mapper_id = 1;
+  int32 partition_id = 2;
+  repeated KeyValuePair key_value_pairs = 3;
+}
+
+message PartitionResponse {
+  string status = 1;
+}
+
+message ReduceRequest {
+  int32 mapper_id = 1;
+  int32 reducer_id = 2;
+}
+
+message Centroid {
+  int32 id = 1;
+  repeated float features = 2;
+}
+
+message CentroidResponse {
+  repeated Centroid centroids = 1;
+}
+
+service KMeans {
+  rpc InputSplit(google.protobuf.Empty) returns (stream InputSplitResponse);
+  rpc CentroidCompilation(google.protobuf.Empty) returns (CentroidResponse);
+}
+
+service Mapper {
+  rpc Map(InputSplitResponse) returns (google.protobuf.Empty);
+  rpc Partition(InputSplitResponse) returns (PartitionResponse);
+}
+
+service Reducer {
+  rpc ShuffleAndSort(PartitionRequest) returns (PartitionResponse);
+  rpc Reduce(ReduceRequest) returns (CentroidResponse);
+}
