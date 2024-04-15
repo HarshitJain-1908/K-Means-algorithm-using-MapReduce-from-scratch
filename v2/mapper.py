@@ -8,15 +8,17 @@ import os
 
 class MapperServicer(MapperServicer):
     def MapData(self, request, context):
+        print(f"request is {request}")
         # Implement the logic to process the shard data in the mapper
-        print(f"Received shard data: {request.shard_file}, {request.start}, {request.end}")
+        print(f"Mapper {request.mapper_id} received shard data: {request.shard_file}, {request.start}, {request.end}")
         # Process the shard data and return the result
         
-        self.map_and_write(request.shard_file, request.start, request.end, request.centroids)
+        self.Map(request.shard_file, request.start, request.end, request.centroids)
         
         return MapperResponse(result="Processed shard data")
     
-    def map_and_write(self, shard_file, start, end, centroids):
+    def Map(self, shard_file, start, end, centroids, R):
+
         kv_pairs = {}
         print("centroids", centroids)
         with open(f"Data/Input/{shard_file}") as f:
@@ -28,6 +30,12 @@ class MapperServicer(MapperServicer):
                 if not nc_key in kv_pairs:
                     kv_pairs[nc_key] = []
                 kv_pairs[nc_key].append(list(map(float, line.split(','))))
+
+        self.Partition(kv_pairs, R)
+        return
+    
+    def Partition(self, kv_pairs, R):
+    
         # write the processed data to a new file
         if not os.path.exists(f"Data/Mappers/M{self.port}"):
             os.makedirs(f"Data/Mappers/M{self.port}")
@@ -36,16 +44,18 @@ class MapperServicer(MapperServicer):
         for f in os.listdir(f"Data/Mappers/M{self.port}"):
             os.remove(os.path.join(f"Data/Mappers/M{self.port}", f))
         
+        for r in range(0, R):
+            open(f"Data/Mappers/M{self.port}/partition_{partition}.txt", "a")
+
         for k in kv_pairs:
-            partition = nc_key % 2
+            partition = k % 2
             with open(f"Data/Mappers/M{self.port}/partition_{partition}.txt", "a") as f:
                 for line in kv_pairs[k]:
                     f.write(str(k) + "," + str(line) + '\n')
-        return
     
+
     def __init__(self, port):
         self.port = port
-
 
 def nearest_centroid(coords, centroids):
     print("coords", coords)
@@ -57,8 +67,7 @@ def nearest_centroid(coords, centroids):
             nc_key = c.centroid_id
             min_dist = dist
     print("nc_key", nc_key)
-    return nc_key   
-            
+    return nc_key
             
 def serve(port):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

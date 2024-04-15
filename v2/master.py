@@ -8,7 +8,6 @@ import sys
 import signal
 import random
 
-
 def create_shards(num_mappers):
     # read input file(s)
     num_input_files = len(os.listdir("Data/Input/"))
@@ -38,15 +37,13 @@ def create_shards(num_mappers):
 
     return shard_map
 
-
-def send_shard_to_mapper(shard_map, centroids):
+def send_shard_to_mapper(shard_map, centroids, num_reducers):
     for mapper_id, (shard_file, start, end) in shard_map.items():
+        print(f"Master send to mapper {mapper_id}")
         with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
             stub = MapperStub(channel)
-            response = stub.MapData(ShardData(shard_file=shard_file, start=start, end=end, centroids = centroids))
+            response = stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers))
             print(f"Mapper {mapper_id} response: {response.result}")
-
-
 
 def main(num_mappers, num_reducers, num_centroids):
     p = []
@@ -62,20 +59,23 @@ def main(num_mappers, num_reducers, num_centroids):
         s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7000 + i}"])
         p.append(s)
         print(f"Reducer {i} started with PID {s.pid}")
-    completion_flag = False    
+
+    shutdown = False    
         
-    while completion_flag == False:
+    while not shutdown:
         shard_map = create_shards(num_mappers)
         print(shard_map)
-        send_shard_to_mapper(shard_map, centroids)
+        send_shard_to_mapper(shard_map, centroids, num_reducers)
         while True:
             try:
                 pass
             except KeyboardInterrupt:
                 for process in p:
+                    print("terminating")
                     process.terminate()
                 sys.exit(0)
-        completion_flag = True
+        
+        shutdown = True
 
 if __name__ == "__main__":
     main(num_mappers = 4, num_reducers = 6, num_centroids = 3)
