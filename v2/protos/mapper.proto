@@ -1,10 +1,12 @@
 syntax = "proto3";
 
 message ShardData {
-  string shard_file = 1;
-  int32 start = 2;
-  int32 end = 3;
-  repeated Centroid centroids = 4;
+  int32 mapper_id = 1;
+  string shard_file = 2;
+  int32 start = 3;
+  int32 end = 4;
+  repeated Centroid centroids = 5;
+  int32 R = 6;
 }
 
 message Centroid {
