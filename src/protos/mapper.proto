@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message ShardData {
+  int32 mapper_id = 1;
+  string shard_file = 2;
+  int32 start = 3;
+  int32 end = 4;
+  repeated Centroid centroids = 5;
+  int32 R = 6;
+}
+
+message Centroid {
+  int32 centroid_id = 1;
+  double x = 2;
+  double y = 3;
+}
+
+message MapperResponse {
+  string result = 1;
+}
+
+service Mapper {
+  rpc MapData(ShardData) returns (MapperResponse);
+}

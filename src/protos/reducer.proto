@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package reducer;
+
+// Import the necessary types from gRPC library for empty responses.
+import "google/protobuf/empty.proto";
+
+// Define a message that represents a single piece of data to be reduced.
+message ReduceData {
+    string key = 1;
+    string value = 2;
+}
+
+// Define the Reducer service.
+service ReducerService {
+    // RPC method for receiving data from a mapper.
+    rpc ReceiveData(ReduceData) returns (google.protobuf.Empty);
+}
