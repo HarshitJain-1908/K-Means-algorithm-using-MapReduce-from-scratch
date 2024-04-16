@@ -73,6 +73,7 @@ def map_data(mapper_id, shard_file, start, end, centroids, num_reducers):
 
 def start_reduce_phase(mappers, num_reducers):
     print("Starting reduce phase.")
+    all_new_centroids = []
     # Create a ThreadPoolExecutor
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Submit tasks to thread pool
@@ -81,10 +82,15 @@ def start_reduce_phase(mappers, num_reducers):
         for future in concurrent.futures.as_completed(futures):
             reducer_id = futures[future]
             try:
-                result = future.result()
+                result, new_centroids = future.result()
                 print(f"Reducer {reducer_id} started reduce phase: {result}")
+                all_new_centroids.extend(new_centroids)
             except Exception as exc:
                 print(f'Reducer {reducer_id} generated an exception: {exc}')
+
+    with open('centroids.txt', 'w') as f:
+        for centroid in all_new_centroids:
+            f.write(f'Centroid {centroid.centroid_id}: ({centroid.x}, {centroid.y})\n')
 
 def start_reduce(reducer_id, mappers):
     with grpc.insecure_channel(f'localhost:{7000 + reducer_id}') as channel:
@@ -95,10 +101,12 @@ def start_reduce(reducer_id, mappers):
             mapper_info = Mapper(ip=ip, port=port)
             reduce_request.mappers.append(mapper_info)
         # Send the message
-        return stub.StartReduce(reduce_request).result
+        response = stub.StartReduce(reduce_request)
+        return response.result, response.newcentroids
     
 # def start_reduce_phase(mappers, num_reducers):
 #     print("Starting reduce phase.")
+#     all_new_centroids = []
 #     for i in range(num_reducers):
 #         with grpc.insecure_channel(f'localhost:{7000 + i}') as channel:
 #             stub = ReducerStub(channel)
@@ -109,7 +117,14 @@ def start_reduce(reducer_id, mappers):
 #                 reduce_request.mappers.append(mapper_info)
 #             # Send the message
 #             response = stub.StartReduce(reduce_request)
+#             # print("NEW CENTROIDS", response.newcentroids)
+#             # print("RESPONSE", response)
 #             print(f"Reducer {i} started reduce phase: {response.result}")
+#             all_new_centroids.extend(response.newcentroids)
+
+#     with open('centroids.txt', 'w') as f:
+#         for centroid in all_new_centroids:
+#             f.write(f'Centroid {centroid.centroid_id}: ({centroid.x}, {centroid.y})\n')
 
 
 def main(num_mappers, num_reducers, num_centroids):
