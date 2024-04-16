@@ -6,6 +6,7 @@ from mapper_pb2 import ShardData, Centroid
 from mapper_pb2_grpc import MapperStub
 from reducer_pb2_grpc import ReducerStub
 from reducer_pb2 import MapperInfo, Mapper
+import concurrent.futures
 import sys
 import signal
 import random
@@ -39,28 +40,76 @@ def create_shards(num_mappers):
 
     return shard_map
 
+
+
 def start_map_phase(shard_map, centroids, num_reducers):
-    #can distribute work in parallel
-    for mapper_id, (shard_file, start, end) in shard_map.items():
-        print(f"Master send to mapper {mapper_id}")
-        with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
-            stub = MapperStub(channel)
-            response = stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers))
-            print(f"Mapper {mapper_id} response: {response.result}")
+    # Create a ThreadPoolExecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Submit tasks to thread pool
+        futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
+
+        for future in concurrent.futures.as_completed(futures):
+            mapper_id = futures[future]
+            try:
+                result = future.result()
+                print(f"Mapper {mapper_id} response: {result}")
+            except Exception as exc:
+                print(f'Mapper {mapper_id} generated an exception: {exc}')
+
+def map_data(mapper_id, shard_file, start, end, centroids, num_reducers):
+    print(f"Master send to mapper {mapper_id}")
+    with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
+        stub = MapperStub(channel)
+        return stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers)).result
+
+# def start_map_phase(shard_map, centroids, num_reducers):
+#     #can distribute work in parallel
+#     for mapper_id, (shard_file, start, end) in shard_map.items():
+#         print(f"Master send to mapper {mapper_id}")
+#         with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
+#             stub = MapperStub(channel)
+#             response = stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers))
+#             print(f"Mapper {mapper_id} response: {response.result}")
 
 def start_reduce_phase(mappers, num_reducers):
     print("Starting reduce phase.")
-    for i in range(num_reducers):
-        with grpc.insecure_channel(f'localhost:{7000 + i}') as channel:
-            stub = ReducerStub(channel)
-            # Prepare the message with mappers' information
-            reduce_request = MapperInfo()
-            for ip, port in mappers:
-                mapper_info = Mapper(ip=ip, port=port)
-                reduce_request.mappers.append(mapper_info)
-            # Send the message
-            response = stub.StartReduce(reduce_request)
-            print(f"Reducer {i} started reduce phase: {response.result}")
+    # Create a ThreadPoolExecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Submit tasks to thread pool
+        futures = {executor.submit(start_reduce, i, mappers): i for i in range(num_reducers)}
+
+        for future in concurrent.futures.as_completed(futures):
+            reducer_id = futures[future]
+            try:
+                result = future.result()
+                print(f"Reducer {reducer_id} started reduce phase: {result}")
+            except Exception as exc:
+                print(f'Reducer {reducer_id} generated an exception: {exc}')
+
+def start_reduce(reducer_id, mappers):
+    with grpc.insecure_channel(f'localhost:{7000 + reducer_id}') as channel:
+        stub = ReducerStub(channel)
+        # Prepare the message with mappers' information
+        reduce_request = MapperInfo()
+        for ip, port in mappers:
+            mapper_info = Mapper(ip=ip, port=port)
+            reduce_request.mappers.append(mapper_info)
+        # Send the message
+        return stub.StartReduce(reduce_request).result
+    
+# def start_reduce_phase(mappers, num_reducers):
+#     print("Starting reduce phase.")
+#     for i in range(num_reducers):
+#         with grpc.insecure_channel(f'localhost:{7000 + i}') as channel:
+#             stub = ReducerStub(channel)
+#             # Prepare the message with mappers' information
+#             reduce_request = MapperInfo()
+#             for ip, port in mappers:
+#                 mapper_info = Mapper(ip=ip, port=port)
+#                 reduce_request.mappers.append(mapper_info)
+#             # Send the message
+#             response = stub.StartReduce(reduce_request)
+#             print(f"Reducer {i} started reduce phase: {response.result}")
 
 
 def main(num_mappers, num_reducers, num_centroids):
