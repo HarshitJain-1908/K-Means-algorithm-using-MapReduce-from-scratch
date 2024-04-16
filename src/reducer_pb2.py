@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rreducer.proto\x12\x07reducer\"\"\n\x06Mapper\x12\n\n\x02ip\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\".\n\nMapperInfo\x12 \n\x07mappers\x18\x01 \x03(\x0b\x32\x0f.reducer.Mapper\"(\n\nReduceData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"%\n\x0fSendDataRequest\x12\x12\n\nreducer_id\x18\x01 \x01(\x05\"7\n\x12MapperDataResponse\x12!\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x13.reducer.ReduceData\"!\n\x0fReducerResponse\x12\x0e\n\x06result\x18\x01 \x01(\t2c\n\x15Mapper2ReducerService\x12J\n\x11Mapper2ReduceData\x12\x18.reducer.SendDataRequest\x1a\x1b.reducer.MapperDataResponse2G\n\x07Reducer\x12<\n\x0bStartReduce\x12\x13.reducer.MapperInfo\x1a\x18.reducer.ReducerResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rreducer.proto\x12\x07reducer\"\"\n\x06Mapper\x12\n\n\x02ip\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\".\n\nMapperInfo\x12 \n\x07mappers\x18\x01 \x03(\x0b\x32\x0f.reducer.Mapper\"J\n\x0fReducerResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\x12\'\n\x0cnewcentroids\x18\x02 \x03(\x0b\x32\x11.reducer.Centroid\"5\n\x08\x43\x65ntroid\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x05\x12\t\n\x01x\x18\x02 \x01(\x01\x12\t\n\x01y\x18\x03 \x01(\x01\x32\x17\n\x15Mapper2ReducerService2G\n\x07Reducer\x12<\n\x0bStartReduce\x12\x13.reducer.MapperInfo\x1a\x18.reducer.ReducerResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,16 +25,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_MAPPER']._serialized_end=60
   _globals['_MAPPERINFO']._serialized_start=62
   _globals['_MAPPERINFO']._serialized_end=108
-  _globals['_REDUCEDATA']._serialized_start=110
-  _globals['_REDUCEDATA']._serialized_end=150
-  _globals['_SENDDATAREQUEST']._serialized_start=152
-  _globals['_SENDDATAREQUEST']._serialized_end=189
-  _globals['_MAPPERDATARESPONSE']._serialized_start=191
-  _globals['_MAPPERDATARESPONSE']._serialized_end=246
-  _globals['_REDUCERRESPONSE']._serialized_start=248
-  _globals['_REDUCERRESPONSE']._serialized_end=281
-  _globals['_MAPPER2REDUCERSERVICE']._serialized_start=283
-  _globals['_MAPPER2REDUCERSERVICE']._serialized_end=382
-  _globals['_REDUCER']._serialized_start=384
-  _globals['_REDUCER']._serialized_end=455
+  _globals['_REDUCERRESPONSE']._serialized_start=110
+  _globals['_REDUCERRESPONSE']._serialized_end=184
+  _globals['_CENTROID']._serialized_start=186
+  _globals['_CENTROID']._serialized_end=239
+  _globals['_MAPPER2REDUCERSERVICE']._serialized_start=241
+  _globals['_MAPPER2REDUCERSERVICE']._serialized_end=264
+  _globals['_REDUCER']._serialized_start=266
+  _globals['_REDUCER']._serialized_end=337
 # @@protoc_insertion_point(module_scope)

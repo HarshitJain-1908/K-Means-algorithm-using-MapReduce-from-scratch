@@ -15,10 +15,26 @@ message Centroid {
   double y = 3;
 }
 
+message SendDataRequest {
+    int32 reducer_id = 1;
+}
+
+message MapperDataResponse {
+    repeated ReduceData data = 1;
+}
+
+// Define a message that represents a single piece of data to be reduced.
+message ReduceData {
+    string key = 1;
+    string value = 2;
+}
+
+
 message MapperResponse {
   string result = 1;
 }
 
 service Mapper {
   rpc MapData(ShardData) returns (MapperResponse);
+  rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
 }

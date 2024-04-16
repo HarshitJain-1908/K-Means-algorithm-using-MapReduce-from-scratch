@@ -2,9 +2,12 @@ import time
 import grpc
 from concurrent import futures
 from reducer_pb2_grpc import ReducerServicer, add_ReducerServicer_to_server
-from reducer_pb2 import ReducerResponse
-from reducer_pb2_grpc import Mapper2ReducerServiceStub
+from reducer_pb2 import ReducerResponse, Centroid
+from mapper_pb2 import SendDataRequest
+from reducer_pb2_grpc import Mapper2ReducerServiceStub, ReducerStub
+from mapper_pb2_grpc import MapperStub
 from google.protobuf.empty_pb2 import Empty
+import os
 
 class ReducerServicer(ReducerServicer):
     def __init__(self, port, reducer_id):
@@ -23,11 +26,14 @@ class ReducerServicer(ReducerServicer):
 
     def ReceiveDataFromMapper(self, mappers):
         print("hello")
-        for ip, port in mappers:
+        for m in mappers:
+            ip = m.ip
+            port = m.port
             channel = grpc.insecure_channel(f'{ip}:{port}')
-            stub = Mapper2ReducerServiceStub(channel)
+            stub = MapperStub(channel)
             try:
-                response = stub.Mapper2ReduceData(reducer_id=self.reducer_id)  # Assuming an Empty message triggers sending data
+                request = SendDataRequest(reducer_id=self.reducer_id)
+                response = stub.Mapper2ReduceData(request)  # Assuming an Empty message triggers sending data
                 for kv in response.data:
                     if kv.key not in self.data:
                         self.data[kv.key] = []
@@ -45,20 +51,43 @@ class ReducerServicer(ReducerServicer):
         
         # for key, values in self.data.items():
         #     print(f"Reduced data for key {key}: {self.reduce(values)}")
-        print("ok", request.MapperInfo)
-        self.ReceiveDataFromMapper(request.MapperInfo)
+        print("ok", request)
+        
+        self.ReceiveDataFromMapper(request.mappers)
 
         print("displaying data")
         print(self.data)
         print("---------------")
+        
+        
+        if not(os.path.exists(f"data/Reducers")):
+            os.makedirs(f"data/Reducers")    
+         
+        newcentroids = [] 
         for key, values in self.data.items():
-            print(f"Reduced data for key {key}: {self.reduce(values)}")
-        return ReducerResponse(result="Reduction completed")
+            res = self.reduce(key, values)
+            print(f"Reduced data for key {key}: {res}")
+            
+            newcentroids.append(Centroid(centroid_id=int(key), x=res[1][0], y=res[1][1]))
+            
+            with open(f"data/Reducers/R{self.reducer_id}.txt", "w") as f:
+                f.write(str(res))
+        
+        
+        return ReducerResponse(result="Reduction completed", newcentroids=newcentroids)
 
-    def reduce(self, values):
+    def reduce(self, key, values):
+        
+        # values: list of strings, string : [2.0, 4.0]
+        values = [v[1:-1].split(',') for v in values]
+        print("values2", values)
         # Placeholder reduce function (sum as an example)
-        return sum(map(float, values))
-
+        #return sum(map(float, values))
+        values = [list(map(float, v)) for v in values]
+        
+        mean1 = sum([v[0] for v in values]) / len(values)
+        mean2 = sum([v[1] for v in values]) / len(values) 
+        return (key, [mean1, mean2])
 
     # def Shuffle_and_Sort(self, request, context):
 

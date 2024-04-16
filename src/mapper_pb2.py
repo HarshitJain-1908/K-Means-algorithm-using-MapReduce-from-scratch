@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cmapper.proto\"w\n\tShardData\x12\x11\n\tmapper_id\x18\x01 \x01(\x05\x12\x12\n\nshard_file\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x04 \x01(\x05\x12\x1c\n\tcentroids\x18\x05 \x03(\x0b\x32\t.Centroid\x12\t\n\x01R\x18\x06 \x01(\x05\"5\n\x08\x43\x65ntroid\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x05\x12\t\n\x01x\x18\x02 \x01(\x01\x12\t\n\x01y\x18\x03 \x01(\x01\" \n\x0eMapperResponse\x12\x0e\n\x06result\x18\x01 \x01(\t20\n\x06Mapper\x12&\n\x07MapData\x12\n.ShardData\x1a\x0f.MapperResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cmapper.proto\"w\n\tShardData\x12\x11\n\tmapper_id\x18\x01 \x01(\x05\x12\x12\n\nshard_file\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x04 \x01(\x05\x12\x1c\n\tcentroids\x18\x05 \x03(\x0b\x32\t.Centroid\x12\t\n\x01R\x18\x06 \x01(\x05\"5\n\x08\x43\x65ntroid\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x05\x12\t\n\x01x\x18\x02 \x01(\x01\x12\t\n\x01y\x18\x03 \x01(\x01\"%\n\x0fSendDataRequest\x12\x12\n\nreducer_id\x18\x01 \x01(\x05\"/\n\x12MapperDataResponse\x12\x19\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x0b.ReduceData\"(\n\nReduceData\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\" \n\x0eMapperResponse\x12\x0e\n\x06result\x18\x01 \x01(\t2l\n\x06Mapper\x12&\n\x07MapData\x12\n.ShardData\x1a\x0f.MapperResponse\x12:\n\x11Mapper2ReduceData\x12\x10.SendDataRequest\x1a\x13.MapperDataResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,8 +25,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_SHARDDATA']._serialized_end=135
   _globals['_CENTROID']._serialized_start=137
   _globals['_CENTROID']._serialized_end=190
-  _globals['_MAPPERRESPONSE']._serialized_start=192
-  _globals['_MAPPERRESPONSE']._serialized_end=224
-  _globals['_MAPPER']._serialized_start=226
-  _globals['_MAPPER']._serialized_end=274
+  _globals['_SENDDATAREQUEST']._serialized_start=192
+  _globals['_SENDDATAREQUEST']._serialized_end=229
+  _globals['_MAPPERDATARESPONSE']._serialized_start=231
+  _globals['_MAPPERDATARESPONSE']._serialized_end=278
+  _globals['_REDUCEDATA']._serialized_start=280
+  _globals['_REDUCEDATA']._serialized_end=320
+  _globals['_MAPPERRESPONSE']._serialized_start=322
+  _globals['_MAPPERRESPONSE']._serialized_end=354
+  _globals['_MAPPER']._serialized_start=356
+  _globals['_MAPPER']._serialized_end=464
 # @@protoc_insertion_point(module_scope)

@@ -4,7 +4,7 @@ from concurrent import futures
 import sys
 from mapper_pb2 import MapperResponse
 from mapper_pb2_grpc import MapperServicer, add_MapperServicer_to_server
-from reducer_pb2 import MapperDataResponse
+from mapper_pb2 import MapperDataResponse
 from reducer_pb2_grpc import ReducerStub
 import os
 
@@ -63,6 +63,8 @@ class MapperServicer(MapperServicer):
         # print(f"Data sent to reducer {partition}")
 
     def Mapper2ReduceData(self, request, context):
+        print("in mapper2reducedata")
+        print(request)
         reducer_id = request.reducer_id
         partition_filename = f"data/Mappers/M{self.port}/partition_{reducer_id}.txt"
         

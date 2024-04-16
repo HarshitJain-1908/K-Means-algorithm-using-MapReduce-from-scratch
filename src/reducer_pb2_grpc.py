@@ -6,7 +6,8 @@ import reducer_pb2 as reducer__pb2
 
 
 class Mapper2ReducerServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -14,30 +15,15 @@ class Mapper2ReducerServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Mapper2ReduceData = channel.unary_unary(
-                '/reducer.Mapper2ReducerService/Mapper2ReduceData',
-                request_serializer=reducer__pb2.SendDataRequest.SerializeToString,
-                response_deserializer=reducer__pb2.MapperDataResponse.FromString,
-                )
 
 
 class Mapper2ReducerServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
-
-    def Mapper2ReduceData(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+    """rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
+    """
 
 
 def add_Mapper2ReducerServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Mapper2ReduceData': grpc.unary_unary_rpc_method_handler(
-                    servicer.Mapper2ReduceData,
-                    request_deserializer=reducer__pb2.SendDataRequest.FromString,
-                    response_serializer=reducer__pb2.MapperDataResponse.SerializeToString,
-            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'reducer.Mapper2ReducerService', rpc_method_handlers)
@@ -46,24 +32,8 @@ def add_Mapper2ReducerServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Mapper2ReducerService(object):
-    """Missing associated documentation comment in .proto file."""
-
-    @staticmethod
-    def Mapper2ReduceData(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/reducer.Mapper2ReducerService/Mapper2ReduceData',
-            reducer__pb2.SendDataRequest.SerializeToString,
-            reducer__pb2.MapperDataResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+    """rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
+    """
 
 
 class ReducerStub(object):

@@ -51,7 +51,7 @@ def start_map_phase(shard_map, centroids, num_reducers):
 def start_reduce_phase(mappers, num_reducers):
     print("Starting reduce phase.")
     for i in range(num_reducers):
-        with grpc.insecure_channel(f'localhost:{8000 + i}') as channel:
+        with grpc.insecure_channel(f'localhost:{7000 + i}') as channel:
             stub = ReducerStub(channel)
             # Prepare the message with mappers' information
             reduce_request = MapperInfo()
@@ -80,7 +80,7 @@ def main(num_mappers, num_reducers, num_centroids):
         print(f"Mapper {i} started with PID {s.pid}")
     for i in range(num_reducers):
         # s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7000 + i}"], stdout=subprocess.PIPE, shell=True)
-        s = subprocess.Popen(["python3", "reducer.py", f"localhost:{8000 + i}"])
+        s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7000 + i}"])
         p.append(s)
         print(f"Reducer {i} started with PID {s.pid}")
 
