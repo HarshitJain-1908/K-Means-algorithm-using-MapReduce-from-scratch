@@ -8,17 +8,26 @@ class ReducerServicer(ReducerServicer):
     def __init__(self):
         self.data = {}
 
+    def SendReduceData(self, request, context):
+        key = request.key
+        value = request.value
+        if key not in self.data:
+            self.data[key] = []
+        self.data[key].append(value)
+        return ReducerResponse(result="Data added to reducer")
+
     def StartReduce(self, request, context):
-        # Sort and process the data
-        # for key in sorted(self.data.keys()):
-        #     aggregated_value = self.aggregate(self.data[key])
-        #     print(f"Processed key {key} with value {aggregated_value}")
+        # Here you would handle the actual reduce logic
+        # For simplicity, just print the collected data
+        print("displaying data")
+        print(self.data)
+        print("---------------")
+        # for key, values in self.data.items():
+        #     print(f"Reduced data for key {key}: {self.reduce(values)}")
         # return ReducerResponse(result="Reduction completed")
-        pass
-    
-    # Assuming aggregate is a method that combines all values for a key
-    def aggregate(self, values):
-        # Simple example of aggregation: sum of values
+
+    def reduce(self, values):
+        # Placeholder reduce function (sum as an example)
         return sum(map(float, values))
 
 

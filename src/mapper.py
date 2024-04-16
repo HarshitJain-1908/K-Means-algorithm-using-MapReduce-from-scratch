@@ -57,7 +57,7 @@ class MapperServicer(MapperServicer):
             with open(f"data/Mappers/M{self.port}/partition_{partition}.txt", "a") as f:
                 for line in kv_pairs[k]:
                     f.write(str(k) + "," + str(line) + '\n')
-            with grpc.insecure_channel(f'localhost:{7000 + partition}') as channel:
+            with grpc.insecure_channel(f'localhost:{5500 + partition}') as channel:
                 stub = ReducerStub(channel)
                 for value in values:
                     stub.SendReduceData(ReduceData(key=str(k), value=str(value)))
@@ -80,7 +80,7 @@ def nearest_centroid(coords, centroids):
             
 def serve(port):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    mapper = MapperServicer(int(port) - 6000)
+    mapper = MapperServicer(int(port) - 5000)
     add_MapperServicer_to_server(mapper, server)
     server.add_insecure_port(f"[::]:{port}")
     server.start()
