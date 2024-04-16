@@ -1,8 +1,15 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package reducer;
+
+message Mapper {
+    string ip = 1;
+    int32 port = 2;
+}
+
+message MapperInfo {
+    repeated Mapper mappers = 1;
+}
 
 // Define a message that represents a single piece of data to be reduced.
 message ReduceData {
@@ -10,12 +17,23 @@ message ReduceData {
     string value = 2;
 }
 
+message SendDataRequest {
+    int32 reducer_id = 1;
+}
+
+message MapperDataResponse {
+    repeated ReduceData data = 1;
+}
+
 message ReducerResponse {
   string result = 1;
 }
 
+service Mapper2ReducerService {
+    rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
+}
+
 // Define the Reducer service.
 service Reducer {
-    rpc StartReduce(google.protobuf.Empty) returns (ReducerResponse);
-    rpc SendReduceData(ReduceData) returns (ReducerResponse);
+    rpc StartReduce(MapperInfo) returns (ReducerResponse);
 }
