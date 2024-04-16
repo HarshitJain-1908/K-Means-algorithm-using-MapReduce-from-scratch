@@ -6,18 +6,20 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ShardData(_message.Message):
-    __slots__ = ("mapper_id", "shard_file", "start", "end", "centroids")
+    __slots__ = ("mapper_id", "shard_file", "start", "end", "centroids", "R")
     MAPPER_ID_FIELD_NUMBER: _ClassVar[int]
     SHARD_FILE_FIELD_NUMBER: _ClassVar[int]
     START_FIELD_NUMBER: _ClassVar[int]
     END_FIELD_NUMBER: _ClassVar[int]
     CENTROIDS_FIELD_NUMBER: _ClassVar[int]
+    R_FIELD_NUMBER: _ClassVar[int]
     mapper_id: int
     shard_file: str
     start: int
     end: int
     centroids: _containers.RepeatedCompositeFieldContainer[Centroid]
-    def __init__(self, mapper_id: _Optional[int] = ..., shard_file: _Optional[str] = ..., start: _Optional[int] = ..., end: _Optional[int] = ..., centroids: _Optional[_Iterable[_Union[Centroid, _Mapping]]] = ...) -> None: ...
+    R: int
+    def __init__(self, mapper_id: _Optional[int] = ..., shard_file: _Optional[str] = ..., start: _Optional[int] = ..., end: _Optional[int] = ..., centroids: _Optional[_Iterable[_Union[Centroid, _Mapping]]] = ..., R: _Optional[int] = ...) -> None: ...
 
 class Centroid(_message.Message):
     __slots__ = ("centroid_id", "x", "y")
