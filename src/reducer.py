@@ -53,6 +53,8 @@ class ReducerServicer(ReducerServicer):
         #     print(f"Reduced data for key {key}: {self.reduce(values)}")
         print("ok", request)
         
+        open(f"data/Reducers/R{self.reducer_id}.txt", "w")
+        
         self.ReceiveDataFromMapper(request.mappers)
 
         print("displaying data")

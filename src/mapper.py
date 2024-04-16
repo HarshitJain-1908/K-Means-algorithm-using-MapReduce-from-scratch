@@ -49,7 +49,7 @@ class MapperServicer(MapperServicer):
             os.remove(os.path.join(f"data/Mappers/M{self.port}", f))
         
         for r in range(0, R):
-            open(f"data/Mappers/M{self.port}/partition_{r}.txt", "a")
+            open(f"data/Mappers/M{self.port}/partition_{r}.txt", "w")
 
         for k, values in kv_pairs.items():
             partition = k % R
