@@ -4,8 +4,7 @@ from concurrent import futures
 import sys
 from mapper_pb2 import MapperResponse
 from mapper_pb2_grpc import MapperServicer, add_MapperServicer_to_server
-from reducer_pb2 import ReduceData
-#, SendReduceData
+from reducer_pb2 import MapperDataResponse
 from reducer_pb2_grpc import ReducerStub
 import os
 
@@ -57,11 +56,27 @@ class MapperServicer(MapperServicer):
             with open(f"data/Mappers/M{self.port}/partition_{partition}.txt", "a") as f:
                 for line in kv_pairs[k]:
                     f.write(str(k) + "," + str(line) + '\n')
-            with grpc.insecure_channel(f'localhost:{5500 + partition}') as channel:
-                stub = ReducerStub(channel)
-                for value in values:
-                    stub.SendReduceData(ReduceData(key=str(k), value=str(value)))
-        print(f"Data sent to reducer {partition}")
+            # with grpc.insecure_channel(f'localhost:{7000 + partition}') as channel:
+            #     stub = ReducerStub(channel)
+            #     for value in values:
+            #         stub.SendReduceData(ReduceData(key=str(k), value=str(value)))
+        # print(f"Data sent to reducer {partition}")
+
+    def Mapper2ReduceData(self, request, context):
+        reducer_id = request.reducer_id
+        partition_filename = f"data/Mappers/M{self.port}/partition_{reducer_id}.txt"
+        
+        response = MapperDataResponse()
+        if os.path.exists(partition_filename):
+            with open(partition_filename, "r") as f:
+                for line in f:
+                    key, value = line.strip().split(',', 1)
+                    response.data.add(key=key, value=value)
+            print(f"Data sent to reducer {reducer_id}")
+        else:
+            print(f"No data found for reducer {reducer_id}")
+        
+        return response
 
     def __init__(self, port):
         self.port = port
@@ -87,6 +102,5 @@ def serve(port):
     server.wait_for_termination()
 
 if __name__ == "__main__":
-    #time.sleep(3)
     import sys
     serve(sys.argv[1].split(":")[1])

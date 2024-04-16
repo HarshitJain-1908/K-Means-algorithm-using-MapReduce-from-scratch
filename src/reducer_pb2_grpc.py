@@ -2,8 +2,68 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 import reducer_pb2 as reducer__pb2
+
+
+class Mapper2ReducerServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Mapper2ReduceData = channel.unary_unary(
+                '/reducer.Mapper2ReducerService/Mapper2ReduceData',
+                request_serializer=reducer__pb2.SendDataRequest.SerializeToString,
+                response_deserializer=reducer__pb2.MapperDataResponse.FromString,
+                )
+
+
+class Mapper2ReducerServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Mapper2ReduceData(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_Mapper2ReducerServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Mapper2ReduceData': grpc.unary_unary_rpc_method_handler(
+                    servicer.Mapper2ReduceData,
+                    request_deserializer=reducer__pb2.SendDataRequest.FromString,
+                    response_serializer=reducer__pb2.MapperDataResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'reducer.Mapper2ReducerService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Mapper2ReducerService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Mapper2ReduceData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/reducer.Mapper2ReducerService/Mapper2ReduceData',
+            reducer__pb2.SendDataRequest.SerializeToString,
+            reducer__pb2.MapperDataResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class ReducerStub(object):
@@ -18,12 +78,7 @@ class ReducerStub(object):
         """
         self.StartReduce = channel.unary_unary(
                 '/reducer.Reducer/StartReduce',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=reducer__pb2.ReducerResponse.FromString,
-                )
-        self.SendReduceData = channel.unary_unary(
-                '/reducer.Reducer/SendReduceData',
-                request_serializer=reducer__pb2.ReduceData.SerializeToString,
+                request_serializer=reducer__pb2.MapperInfo.SerializeToString,
                 response_deserializer=reducer__pb2.ReducerResponse.FromString,
                 )
 
@@ -38,23 +93,12 @@ class ReducerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendReduceData(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ReducerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StartReduce': grpc.unary_unary_rpc_method_handler(
                     servicer.StartReduce,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=reducer__pb2.ReducerResponse.SerializeToString,
-            ),
-            'SendReduceData': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendReduceData,
-                    request_deserializer=reducer__pb2.ReduceData.FromString,
+                    request_deserializer=reducer__pb2.MapperInfo.FromString,
                     response_serializer=reducer__pb2.ReducerResponse.SerializeToString,
             ),
     }
@@ -80,24 +124,7 @@ class Reducer(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/reducer.Reducer/StartReduce',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            reducer__pb2.ReducerResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SendReduceData(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/reducer.Reducer/SendReduceData',
-            reducer__pb2.ReduceData.SerializeToString,
+            reducer__pb2.MapperInfo.SerializeToString,
             reducer__pb2.ReducerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

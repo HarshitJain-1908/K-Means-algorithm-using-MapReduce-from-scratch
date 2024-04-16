@@ -1,4 +1,3 @@
-# import cmd
 import subprocess
 import argparse
 import os
@@ -6,7 +5,7 @@ import grpc
 from mapper_pb2 import ShardData, Centroid
 from mapper_pb2_grpc import MapperStub
 from reducer_pb2_grpc import ReducerStub
-from google.protobuf.empty_pb2 import Empty
+from reducer_pb2 import MapperInfo, Mapper
 import sys
 import signal
 import random
@@ -44,35 +43,44 @@ def start_map_phase(shard_map, centroids, num_reducers):
     #can distribute work in parallel
     for mapper_id, (shard_file, start, end) in shard_map.items():
         print(f"Master send to mapper {mapper_id}")
-        with grpc.insecure_channel(f'localhost:{3000 + mapper_id}') as channel:
+        with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
             stub = MapperStub(channel)
             response = stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers))
             print(f"Mapper {mapper_id} response: {response.result}")
 
-def start_reduce_phase(num_reducers):
+def start_reduce_phase(mappers, num_reducers):
     print("Starting reduce phase.")
     for i in range(num_reducers):
-        with grpc.insecure_channel(f'localhost:{5500 + i}') as channel:
+        with grpc.insecure_channel(f'localhost:{8000 + i}') as channel:
             stub = ReducerStub(channel)
-            response = stub.StartReduce(Empty())  # assuming an Empty message signals reducer to start processing
+            # Prepare the message with mappers' information
+            reduce_request = MapperInfo()
+            for ip, port in mappers:
+                mapper_info = Mapper(ip=ip, port=port)
+                reduce_request.mappers.append(mapper_info)
+            # Send the message
+            response = stub.StartReduce(reduce_request)
             print(f"Reducer {i} started reduce phase: {response.result}")
 
 
 def main(num_mappers, num_reducers, num_centroids):
     p = []
     centroids = []
+    mappers = []
+
     for i in range(num_centroids):
         centroids.append(Centroid(centroid_id = i+1, x = random.random()*10, y = random.random()*10))
     print("centroids_main", centroids)
     for i in range(num_mappers):
         # s = subprocess.Popen("exec " + cmd, stdout=subprocess.PIPE, shell=True)
-        # s = subprocess.Popen(["python3", "mapper.py", f"localhost:{3000 + i}"], stdout=subprocess.PIPE, shell=True)
-        s = subprocess.Popen(["python3", "mapper.py", f"localhost:{3000 + i}"])
+        # s = subprocess.Popen(["python3", "mapper.py", f"localhost:{6000 + i}"], stdout=subprocess.PIPE, shell=True)
+        s = subprocess.Popen(["python3", "mapper.py", f"localhost:{6000 + i}"])
+        mappers.append(('localhost', 6000 + i))
         p.append(s)
         print(f"Mapper {i} started with PID {s.pid}")
     for i in range(num_reducers):
-        # s = subprocess.Popen(["python3", "reducer.py", f"localhost:{5500 + i}"], stdout=subprocess.PIPE, shell=True)
-        s = subprocess.Popen(["python3", "reducer.py", f"localhost:{5500 + i}"])
+        # s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7000 + i}"], stdout=subprocess.PIPE, shell=True)
+        s = subprocess.Popen(["python3", "reducer.py", f"localhost:{8000 + i}"])
         p.append(s)
         print(f"Reducer {i} started with PID {s.pid}")
 
@@ -82,7 +90,7 @@ def main(num_mappers, num_reducers, num_centroids):
         shard_map = create_shards(num_mappers)
         print(shard_map)
         start_map_phase(shard_map, centroids, num_reducers)
-        start_reduce_phase(num_reducers)
+        start_reduce_phase(mappers, num_reducers)
 
         while True:
             try:
