@@ -2,7 +2,8 @@ import time
 import grpc
 from concurrent import futures
 from reducer_pb2_grpc import ReducerServicer, add_ReducerServicer_to_server
-from reducer_pb2 import ReducerResponse, Centroid
+from reducer_pb2 import ReducerResponse
+from mapper_pb2 import Centroid
 from mapper_pb2 import SendDataRequest
 from reducer_pb2_grpc import Mapper2ReducerServiceStub, ReducerStub
 from mapper_pb2_grpc import MapperStub

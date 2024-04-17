@@ -43,14 +43,14 @@ def create_shards(num_mappers):
             end = (i + 1) * num_lines // num_mappers
             if i == num_mappers - 1:
                 end = num_lines
-            shard_map[i] = (input_file, start, end)
+            shard_map[i+1] = (input_file, start, end)
             
     else:
         # in case of multiple files, you cannot use the indices approach. You will have to distribute one file per mapper.
         input_files = os.listdir("data/input/")
         for i in range(num_mappers):
             num_lines = len(open(os.path.join("data", "input", input_files[i])).read().splitlines())
-            shard_map[i] = (input_files[i], 0, num_lines)
+            shard_map[i+1] = (input_files[i], 0, num_lines)
 
     log(f"Shard map created: {shard_map}")
 
@@ -86,7 +86,7 @@ def start_reduce_phase(mappers, num_reducers):
     # Create a ThreadPoolExecutor
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Submit tasks to thread pool
-        futures = {executor.submit(start_reduce, i, mappers): i for i in range(num_reducers)}
+        futures = {executor.submit(start_reduce, i+1, mappers): i for i in range(num_reducers)}
 
         for future in concurrent.futures.as_completed(futures):
             reducer_id = futures[future]
@@ -97,6 +97,7 @@ def start_reduce_phase(mappers, num_reducers):
             except Exception as exc:
                 log(f'Reducer {reducer_id} generated an exception: {exc}')
 
+    all_new_centroids.sort(key=lambda centroid: centroid.centroid_id)
 
     with open('centroids.txt', 'w') as f:
         for centroid in all_new_centroids:

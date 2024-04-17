@@ -16,7 +16,6 @@ class MapperServicer(MapperServicer):
     def __init__(self, port, mapper_id):
         self.port = port
         self.mapper_id = mapper_id
-        print(self.mapper_id)
 
         logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(message)s',

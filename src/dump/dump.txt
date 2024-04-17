@@ -1,245 +1,201 @@
-2024-04-17 14:12:04,359 INFO Mapper 0 started with PID 19399
-2024-04-17 14:12:04,360 INFO Mapper 1 started with PID 19400
-2024-04-17 14:12:04,362 INFO Mapper 2 started with PID 19401
-2024-04-17 14:12:04,363 INFO Mapper 3 started with PID 19402
-2024-04-17 14:12:04,364 INFO Reducer 0 started with PID 19403
-2024-04-17 14:12:04,365 INFO Reducer 1 started with PID 19404
-2024-04-17 14:12:04,367 INFO Reducer 2 started with PID 19405
-2024-04-17 14:12:04,368 INFO Reducer 3 started with PID 19406
-2024-04-17 14:12:04,389 INFO Reducer 4 started with PID 19407
-2024-04-17 14:12:04,400 INFO Reducer 5 started with PID 19408
-2024-04-17 14:12:04,400 INFO Initial random centroids: Centroid 1: (7.327139934137, 2.2120565867304576), Centroid 2: (7.660528815378127, 9.973557494997078), Centroid 3: (0.9809710612356337, 5.074070857719773)
-2024-04-17 14:12:04,400 INFO Iteration 1 begins
-2024-04-17 14:12:04,400 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,400 INFO Starting map phase...
-2024-04-17 14:12:04,416 INFO Master sends to mapper 0
-2024-04-17 14:12:04,422 INFO Master sends to mapper 1
-2024-04-17 14:12:04,444 INFO Master sends to mapper 2
-2024-04-17 14:12:04,447 INFO Master sends to mapper 3
-2024-04-17 14:12:04,455 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:12:04,455 INFO Mapper 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:6000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:6000: Failed to connect to remote host: Connection refused", grpc_status:14, created_time:"2024-04-17T14:12:04.446473447+05:30"}"
->
-2024-04-17 14:12:04,458 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:12:04,458 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:12:04,459 INFO Starting reduce phase...
-2024-04-17 14:12:04,496 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,497 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,497 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.475873325+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,516 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,518 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,521 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,522 INFO New centroids: Centroid 1: (9.866666666666669, 0.7266666666666665), Centroid 3: (-0.20000000000000004, 8.155555555555555), Centroid 2: (-0.20000000000000004, 8.155555555555555)
-2024-04-17 14:12:04,522 INFO Iteration 2 begins
-2024-04-17 14:12:04,522 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,522 INFO Starting map phase...
-2024-04-17 14:12:04,523 INFO Master sends to mapper 0
-2024-04-17 14:12:04,523 INFO Master sends to mapper 1
-2024-04-17 14:12:04,523 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,523 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,523 INFO Master sends to mapper 2
-2024-04-17 14:12:04,523 INFO Master sends to mapper 3
-2024-04-17 14:12:04,524 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,524 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,524 INFO Starting reduce phase...
-2024-04-17 14:12:04,533 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused", grpc_status:14, created_time:"2024-04-17T14:12:04.526336367+05:30"}"
->
-2024-04-17 14:12:04,550 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,550 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,552 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,562 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,562 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,563 INFO New centroids: Centroid 1: (7.543589743589744, 2.4410256410256412), Centroid 2: (5.098245614035085, 4.245614035087719), Centroid 3: (-0.20000000000000004, 8.155555555555555)
-2024-04-17 14:12:04,563 INFO Iteration 3 begins
-2024-04-17 14:12:04,563 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,563 INFO Starting map phase...
-2024-04-17 14:12:04,563 INFO Master sends to mapper 0
-2024-04-17 14:12:04,563 INFO Master sends to mapper 1
-2024-04-17 14:12:04,564 INFO Master sends to mapper 2
-2024-04-17 14:12:04,564 INFO Master sends to mapper 3
-2024-04-17 14:12:04,564 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,565 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,565 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,565 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,565 INFO Starting reduce phase...
-2024-04-17 14:12:04,568 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused", grpc_status:14, created_time:"2024-04-17T14:12:04.568113188+05:30"}"
->
-2024-04-17 14:12:04,582 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,582 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,588 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,589 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,593 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,593 INFO New centroids: Centroid 2: (-0.20000000000000004, 8.155555555555555), Centroid 1: (9.866666666666667, 0.7266666666666667), Centroid 3: (-0.20000000000000004, 8.155555555555555)
-2024-04-17 14:12:04,593 INFO Iteration 4 begins
-2024-04-17 14:12:04,593 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,593 INFO Starting map phase...
-2024-04-17 14:12:04,593 INFO Master sends to mapper 0
-2024-04-17 14:12:04,593 INFO Master sends to mapper 1
-2024-04-17 14:12:04,594 INFO Master sends to mapper 2
-2024-04-17 14:12:04,594 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,594 INFO Master sends to mapper 3
-2024-04-17 14:12:04,594 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,595 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,595 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,595 INFO Starting reduce phase...
-2024-04-17 14:12:04,598 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.596895299+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,608 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,608 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,609 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,609 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,609 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,610 INFO New centroids: Centroid 1: (9.866666666666669, 0.7266666666666665), Centroid 3: (-0.20000000000000004, 8.155555555555555), Centroid 2: (-0.2, 8.155555555555553)
-2024-04-17 14:12:04,610 INFO Iteration 5 begins
-2024-04-17 14:12:04,610 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,610 INFO Starting map phase...
-2024-04-17 14:12:04,610 INFO Master sends to mapper 0
-2024-04-17 14:12:04,610 INFO Master sends to mapper 1
-2024-04-17 14:12:04,611 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,611 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,611 INFO Master sends to mapper 2
-2024-04-17 14:12:04,611 INFO Master sends to mapper 3
-2024-04-17 14:12:04,611 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,611 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,612 INFO Starting reduce phase...
-2024-04-17 14:12:04,615 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused", grpc_status:14, created_time:"2024-04-17T14:12:04.613677752+05:30"}"
->
-2024-04-17 14:12:04,622 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,623 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,625 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,626 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,627 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,627 INFO New centroids: Centroid 1: (8.18888888888889, 1.964814814814815), Centroid 3: (8.553623188405798, 1.6956521739130435), Centroid 2: (-0.20000000000000004, 8.155555555555553)
-2024-04-17 14:12:04,627 INFO Iteration 6 begins
-2024-04-17 14:12:04,627 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,627 INFO Starting map phase...
-2024-04-17 14:12:04,627 INFO Master sends to mapper 0
-2024-04-17 14:12:04,627 INFO Master sends to mapper 1
-2024-04-17 14:12:04,628 INFO Master sends to mapper 2
-2024-04-17 14:12:04,628 INFO Master sends to mapper 3
-2024-04-17 14:12:04,628 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,628 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,629 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,629 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,629 INFO Starting reduce phase...
-2024-04-17 14:12:04,632 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.630451128+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,648 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,648 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,651 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,653 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,653 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,653 INFO New centroids: Centroid 3: (-0.20000000000000004, 8.155555555555553), Centroid 2: (-0.20000000000000004, 8.155555555555555), Centroid 1: (7.918279569892474, 2.164516129032258)
-2024-04-17 14:12:04,654 INFO Iteration 7 begins
-2024-04-17 14:12:04,654 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,654 INFO Starting map phase...
-2024-04-17 14:12:04,654 INFO Master sends to mapper 0
-2024-04-17 14:12:04,654 INFO Master sends to mapper 1
-2024-04-17 14:12:04,654 INFO Master sends to mapper 2
-2024-04-17 14:12:04,654 INFO Master sends to mapper 3
-2024-04-17 14:12:04,654 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,655 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,655 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,655 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,655 INFO Starting reduce phase...
-2024-04-17 14:12:04,659 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.656666907+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,666 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,667 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,668 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,668 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,668 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,669 INFO New centroids: Centroid 3: (-0.20000000000000004, 8.155555555555555), Centroid 1: (9.866666666666669, 0.7266666666666665), Centroid 2: (5.098245614035085, 4.245614035087719)
-2024-04-17 14:12:04,669 INFO Iteration 8 begins
-2024-04-17 14:12:04,669 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,669 INFO Starting map phase...
-2024-04-17 14:12:04,669 INFO Master sends to mapper 0
-2024-04-17 14:12:04,669 INFO Master sends to mapper 1
-2024-04-17 14:12:04,669 INFO Master sends to mapper 2
-2024-04-17 14:12:04,669 INFO Master sends to mapper 3
-2024-04-17 14:12:04,670 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,670 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,670 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,670 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,670 INFO Starting reduce phase...
-2024-04-17 14:12:04,672 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.67147344+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,681 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,682 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,682 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,683 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,683 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,683 INFO New centroids: Centroid 3: (-0.20000000000000004, 8.155555555555553), Centroid 2: (-0.20000000000000004, 8.155555555555555), Centroid 1: (6.7425287356321855, 3.032183908045976)
-2024-04-17 14:12:04,683 INFO Iteration 9 begins
-2024-04-17 14:12:04,684 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,684 INFO Starting map phase...
-2024-04-17 14:12:04,684 INFO Master sends to mapper 0
-2024-04-17 14:12:04,684 INFO Master sends to mapper 1
-2024-04-17 14:12:04,684 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,684 INFO Master sends to mapper 2
-2024-04-17 14:12:04,684 INFO Master sends to mapper 3
-2024-04-17 14:12:04,684 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,685 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,685 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,685 INFO Starting reduce phase...
-2024-04-17 14:12:04,687 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused", grpc_status:14, created_time:"2024-04-17T14:12:04.686066623+05:30"}"
->
-2024-04-17 14:12:04,695 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,698 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,698 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,700 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,701 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,701 INFO New centroids: Centroid 3: (-0.2, 8.155555555555553), Centroid 2: (-0.20000000000000004, 8.155555555555553), Centroid 1: (9.866666666666669, 0.7266666666666665)
-2024-04-17 14:12:04,701 INFO Iteration 10 begins
-2024-04-17 14:12:04,701 INFO Shard map created: {0: ('points.txt', 0, 7), 1: ('points.txt', 7, 15), 2: ('points.txt', 15, 23), 3: ('points.txt', 23, 31)}
-2024-04-17 14:12:04,701 INFO Starting map phase...
-2024-04-17 14:12:04,701 INFO Master sends to mapper 0
-2024-04-17 14:12:04,701 INFO Master sends to mapper 1
-2024-04-17 14:12:04,702 INFO Master sends to mapper 2
-2024-04-17 14:12:04,702 INFO Master sends to mapper 3
-2024-04-17 14:12:04,702 INFO Mapper 1 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,702 INFO Mapper 0 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,702 INFO Mapper 2 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,702 INFO Mapper 3 generated an exception: Parameter to MergeFrom() must be instance of same class: expected <class 'mapper_pb2.Centroid'> got <class 'reducer_pb2.Centroid'>.
-2024-04-17 14:12:04,702 INFO Starting reduce phase...
-2024-04-17 14:12:04,704 INFO Reducer 0 generated an exception: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNAVAILABLE
-	details = "failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"
-	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2024-04-17T14:12:04.704197874+05:30", grpc_status:14, grpc_message:"failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:7000: Failed to connect to remote host: Connection refused"}"
->
-2024-04-17 14:12:04,714 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:12:04,715 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:12:04,715 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:12:04,715 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:12:04,716 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:12:04,716 INFO New centroids: Centroid 3: (-0.20000000000000004, 8.155555555555555), Centroid 2: (4.375757575757577, 4.778787878787878), Centroid 1: (9.866666666666669, 0.7266666666666665)
+2024-04-17 14:33:09,576 INFO Mapper 0 started with PID 29601
+2024-04-17 14:33:09,577 INFO Mapper 1 started with PID 29602
+2024-04-17 14:33:09,577 INFO Mapper 2 started with PID 29603
+2024-04-17 14:33:09,578 INFO Mapper 3 started with PID 29604
+2024-04-17 14:33:09,579 INFO Reducer 0 started with PID 29605
+2024-04-17 14:33:09,581 INFO Reducer 1 started with PID 29606
+2024-04-17 14:33:09,597 INFO Reducer 2 started with PID 29607
+2024-04-17 14:33:09,604 INFO Reducer 3 started with PID 29608
+2024-04-17 14:33:09,615 INFO Reducer 4 started with PID 29609
+2024-04-17 14:33:09,623 INFO Reducer 5 started with PID 29610
+2024-04-17 14:33:09,623 INFO Initial random centroids: Centroid 1: (8.326098915068293, 7.597808851472819), Centroid 2: (4.040555801692147, 4.604928177917279), Centroid 3: (6.615164432728831, 1.7644323483853008)
+2024-04-17 14:33:09,623 INFO Iteration 1 begins
+2024-04-17 14:33:09,624 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:09,624 INFO Starting map phase...
+2024-04-17 14:33:09,632 INFO Master sends to mapper 1
+2024-04-17 14:33:09,639 INFO Master sends to mapper 2
+2024-04-17 14:33:09,648 INFO Master sends to mapper 3
+2024-04-17 14:33:09,657 INFO Master sends to mapper 4
+2024-04-17 14:33:09,684 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:09,685 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:09,685 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:09,689 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:09,690 INFO Starting reduce phase...
+2024-04-17 14:33:09,741 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:09,741 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:09,755 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:09,761 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:09,763 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:09,768 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:09,771 INFO New centroids: Centroid 1: (6.985185185185186, 2.7898148148148127), Centroid 2: (-0.057352941176470565, 8.330882352941178), Centroid 3: (9.741592920353982, 0.7663716814159293)
+2024-04-17 14:33:09,771 INFO Iteration 2 begins
+2024-04-17 14:33:09,771 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:09,771 INFO Starting map phase...
+2024-04-17 14:33:09,771 INFO Master sends to mapper 1
+2024-04-17 14:33:09,772 INFO Master sends to mapper 2
+2024-04-17 14:33:09,772 INFO Master sends to mapper 3
+2024-04-17 14:33:09,775 INFO Master sends to mapper 4
+2024-04-17 14:33:09,779 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:09,779 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:09,782 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:09,782 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:09,782 INFO Starting reduce phase...
+2024-04-17 14:33:09,795 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:09,800 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:09,800 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:09,800 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:09,802 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:09,805 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:09,805 INFO New centroids: Centroid 1: (8.371428571428572, 2.771428571428572), Centroid 2: (2.9816666666666674, 5.989999999999999), Centroid 3: (5.029166666666666, 4.091666666666668)
+2024-04-17 14:33:09,805 INFO Iteration 3 begins
+2024-04-17 14:33:09,805 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:09,805 INFO Starting map phase...
+2024-04-17 14:33:09,805 INFO Master sends to mapper 1
+2024-04-17 14:33:09,806 INFO Master sends to mapper 2
+2024-04-17 14:33:09,807 INFO Master sends to mapper 3
+2024-04-17 14:33:09,807 INFO Master sends to mapper 4
+2024-04-17 14:33:09,808 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:09,809 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:09,810 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:09,810 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:09,811 INFO Starting reduce phase...
+2024-04-17 14:33:09,822 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:09,823 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:09,824 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:09,826 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:09,828 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:09,828 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:09,828 INFO New centroids: Centroid 1: (9.547368421052632, 1.0473684210526317), Centroid 2: (-0.17500000000000002, 8.141666666666667), Centroid 3: (4.439849624060148, 4.81954887218045)
+2024-04-17 14:33:09,828 INFO Iteration 4 begins
+2024-04-17 14:33:09,829 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:09,829 INFO Starting map phase...
+2024-04-17 14:33:09,829 INFO Master sends to mapper 1
+2024-04-17 14:33:09,829 INFO Master sends to mapper 2
+2024-04-17 14:33:09,830 INFO Master sends to mapper 3
+2024-04-17 14:33:09,830 INFO Master sends to mapper 4
+2024-04-17 14:33:09,831 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:09,832 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:09,832 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,837 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,838 INFO Starting reduce phase...
+2024-04-17 14:33:13,859 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,861 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,861 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,861 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,862 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,865 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,865 INFO New centroids: Centroid 1: (7.469565217391301, 2.416770186335402), Centroid 2: (-0.17500000000000002, 8.141666666666667), Centroid 3: (2.9042253521126753, 5.941549295774648)
+2024-04-17 14:33:13,866 INFO Iteration 5 begins
+2024-04-17 14:33:13,866 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,866 INFO Starting map phase...
+2024-04-17 14:33:13,866 INFO Master sends to mapper 1
+2024-04-17 14:33:13,866 INFO Master sends to mapper 2
+2024-04-17 14:33:13,866 INFO Master sends to mapper 3
+2024-04-17 14:33:13,866 INFO Master sends to mapper 4
+2024-04-17 14:33:13,868 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,870 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,870 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,870 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,870 INFO Starting reduce phase...
+2024-04-17 14:33:13,880 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,882 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,882 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,882 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,883 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,884 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,885 INFO New centroids: Centroid 1: (9.54736842105263, 1.0473684210526315), Centroid 2: (2.270370370370372, 6.697530864197531), Centroid 3: (2.9042253521126753, 5.941549295774648)
+2024-04-17 14:33:13,885 INFO Iteration 6 begins
+2024-04-17 14:33:13,885 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,885 INFO Starting map phase...
+2024-04-17 14:33:13,885 INFO Master sends to mapper 1
+2024-04-17 14:33:13,885 INFO Master sends to mapper 2
+2024-04-17 14:33:13,886 INFO Master sends to mapper 3
+2024-04-17 14:33:13,886 INFO Master sends to mapper 4
+2024-04-17 14:33:13,887 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,888 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,888 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,888 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,888 INFO Starting reduce phase...
+2024-04-17 14:33:13,899 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,899 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,900 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,900 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,901 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,902 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,902 INFO New centroids: Centroid 1: (9.23076923076923, 1.5115384615384615), Centroid 2: (1.954838709677421, 6.883870967741936), Centroid 3: (4.439849624060148, 4.81954887218045)
+2024-04-17 14:33:13,902 INFO Iteration 7 begins
+2024-04-17 14:33:13,903 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,903 INFO Starting map phase...
+2024-04-17 14:33:13,903 INFO Master sends to mapper 1
+2024-04-17 14:33:13,903 INFO Master sends to mapper 2
+2024-04-17 14:33:13,903 INFO Master sends to mapper 3
+2024-04-17 14:33:13,904 INFO Master sends to mapper 4
+2024-04-17 14:33:13,905 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,905 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,906 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,906 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,906 INFO Starting reduce phase...
+2024-04-17 14:33:13,918 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,919 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,919 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,919 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,921 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,921 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,922 INFO New centroids: Centroid 1: (9.48481012658228, 1.1164556962025318), Centroid 2: (-0.17500000000000004, 8.141666666666666)
+2024-04-17 14:33:13,922 INFO Iteration 8 begins
+2024-04-17 14:33:13,922 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,922 INFO Starting map phase...
+2024-04-17 14:33:13,922 INFO Master sends to mapper 1
+2024-04-17 14:33:13,923 INFO Master sends to mapper 2
+2024-04-17 14:33:13,923 INFO Master sends to mapper 3
+2024-04-17 14:33:13,923 INFO Master sends to mapper 4
+2024-04-17 14:33:13,925 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,926 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,926 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,926 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,926 INFO Starting reduce phase...
+2024-04-17 14:33:13,936 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,938 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,938 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,938 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,938 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,939 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,939 INFO New centroids: Centroid 1: (8.669346733668332, 1.6402010050251243), Centroid 2: (-0.21333333333333332, 8.2), Centroid 3: (-0.17500000000000004, 8.141666666666666)
+2024-04-17 14:33:13,939 INFO Iteration 9 begins
+2024-04-17 14:33:13,939 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,939 INFO Starting map phase...
+2024-04-17 14:33:13,939 INFO Master sends to mapper 1
+2024-04-17 14:33:13,940 INFO Master sends to mapper 2
+2024-04-17 14:33:13,940 INFO Master sends to mapper 3
+2024-04-17 14:33:13,940 INFO Master sends to mapper 4
+2024-04-17 14:33:13,942 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,942 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,942 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,943 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,943 INFO Starting reduce phase...
+2024-04-17 14:33:13,953 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,955 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,955 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,956 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,956 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,956 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,957 INFO New centroids: Centroid 1: (7.173743016759772, 2.5921787709497193), Centroid 2: (-0.18837209302325586, 8.246511627906976), Centroid 3: (1.1689655172413795, 7.002586206896552)
+2024-04-17 14:33:13,957 INFO Iteration 10 begins
+2024-04-17 14:33:13,957 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 14:33:13,957 INFO Starting map phase...
+2024-04-17 14:33:13,957 INFO Master sends to mapper 1
+2024-04-17 14:33:13,957 INFO Master sends to mapper 2
+2024-04-17 14:33:13,957 INFO Master sends to mapper 3
+2024-04-17 14:33:13,957 INFO Master sends to mapper 4
+2024-04-17 14:33:13,960 INFO Mapper 2 response: Processed shard data
+2024-04-17 14:33:13,960 INFO Mapper 3 response: Processed shard data
+2024-04-17 14:33:13,960 INFO Mapper 1 response: Processed shard data
+2024-04-17 14:33:13,960 INFO Mapper 4 response: Processed shard data
+2024-04-17 14:33:13,961 INFO Starting reduce phase...
+2024-04-17 14:33:13,971 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 14:33:13,972 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 14:33:13,972 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 14:33:13,972 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 14:33:13,973 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 14:33:13,973 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 14:33:13,973 INFO New centroids: Centroid 1: (9.364444444444445, 1.3155555555555554), Centroid 2: (1.9577464788732342, 6.641549295774649), Centroid 3: (3.548333333333334, 5.5283333333333315)

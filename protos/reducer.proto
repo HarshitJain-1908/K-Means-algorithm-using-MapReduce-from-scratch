@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "mapper.proto";
+
 package reducer;
 
 message Mapper {
@@ -17,19 +19,9 @@ message ReducerResponse {
     repeated Centroid newcentroids = 2;
 }
 
-
-message Centroid {
-  int32 centroid_id = 1;
-  double x = 2;
-  double y = 3;
-}
-
-
 service Mapper2ReducerService {
 //    rpc Mapper2ReduceData(SendDataRequest) returns (MapperDataResponse);
 }
-
-
 
 // Define the Reducer service.
 service Reducer {
