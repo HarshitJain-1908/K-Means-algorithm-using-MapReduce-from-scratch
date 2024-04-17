@@ -31,6 +31,26 @@ class Centroid(_message.Message):
     y: float
     def __init__(self, centroid_id: _Optional[int] = ..., x: _Optional[float] = ..., y: _Optional[float] = ...) -> None: ...
 
+class SendDataRequest(_message.Message):
+    __slots__ = ("reducer_id",)
+    REDUCER_ID_FIELD_NUMBER: _ClassVar[int]
+    reducer_id: int
+    def __init__(self, reducer_id: _Optional[int] = ...) -> None: ...
+
+class MapperDataResponse(_message.Message):
+    __slots__ = ("data",)
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    data: _containers.RepeatedCompositeFieldContainer[ReduceData]
+    def __init__(self, data: _Optional[_Iterable[_Union[ReduceData, _Mapping]]] = ...) -> None: ...
+
+class ReduceData(_message.Message):
+    __slots__ = ("key", "value")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    key: str
+    value: str
+    def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+
 class MapperResponse(_message.Message):
     __slots__ = ("result",)
     RESULT_FIELD_NUMBER: _ClassVar[int]

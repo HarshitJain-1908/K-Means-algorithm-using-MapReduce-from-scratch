@@ -8,24 +8,28 @@ from reducer_pb2_grpc import Mapper2ReducerServiceStub, ReducerStub
 from mapper_pb2_grpc import MapperStub
 from google.protobuf.empty_pb2 import Empty
 import os
+import logging
 
+def log(message):
+    logging.info(message)
+    
 class ReducerServicer(ReducerServicer):
     def __init__(self, port, reducer_id):
         self.data = {}
         self.port = port
         self.reducer_id = reducer_id
 
-    # def Mapper2ReduceData(self, request, context):
-    #     key = request.key
-    #     value = request.value
-    #     if key not in self.data:
-    #         self.data[key] = []
-    #     self.data[key].append(value)
-    #     print(f"Reducer received data for key {key}: {value}")
-    #     return ReducerResponse(result="Data added to reducer")
+        # Set up logging
+
+        if not(os.path.exists(f"dump")):
+            os.makedirs(f"dump")
+
+        logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    filename=f'dump/R{self.reducer_id}_dump.txt',
+                    filemode='w')
 
     def ReceiveDataFromMapper(self, mappers):
-        print("hello")
         for m in mappers:
             ip = m.ip
             port = m.port
@@ -38,53 +42,46 @@ class ReducerServicer(ReducerServicer):
                     if kv.key not in self.data:
                         self.data[kv.key] = []
                     self.data[kv.key].append(kv.value)
-                    print(f"Data received from mapper {ip}:{port} for key {kv.key}: {kv.value}")
+                    log(f"Data received from mapper {ip}:{port} for key {kv.key}: {kv.value}")
             except grpc.RpcError as e:
-                print(f"Failed to receive data from mapper {ip}:{port}: {str(e)}")
+                log(f"Failed to receive data from mapper {ip}:{port}: {str(e)}")
             finally:
                 channel.close()
 
 
     def StartReduce(self, request, context):
-        # Here you would handle the actual reduce logic
-        # For simplicity, just print the collected data
-        
-        # for key, values in self.data.items():
-        #     print(f"Reduced data for key {key}: {self.reduce(values)}")
-        print("ok", request)
-        
+
+        log(f"Reducer {self.reducer_id} started reduce phase")
+
+        if not(os.path.exists(f"data/Reducers")):
+            os.makedirs(f"data/Reducers")
+
         open(f"data/Reducers/R{self.reducer_id}.txt", "w")
         
         self.ReceiveDataFromMapper(request.mappers)
 
-        print("displaying data")
-        print(self.data)
-        print("---------------")
-        
-        
-        if not(os.path.exists(f"data/Reducers")):
-            os.makedirs(f"data/Reducers")    
+        log("displaying data")
+        log(self.data)
          
         newcentroids = [] 
         for key, values in self.data.items():
             res = self.reduce(key, values)
-            print(f"Reduced data for key {key}: {res}")
+            log(f"Reduced data for key {key}: {res}")
             
             newcentroids.append(Centroid(centroid_id=int(key), x=res[1][0], y=res[1][1]))
             
             with open(f"data/Reducers/R{self.reducer_id}.txt", "w") as f:
                 f.write(str(res))
         
-        
         return ReducerResponse(result="Reduction completed", newcentroids=newcentroids)
 
+    #Reduce function
     def reduce(self, key, values):
         
         # values: list of strings, string : [2.0, 4.0]
         values = [v[1:-1].split(',') for v in values]
-        print("values2", values)
-        # Placeholder reduce function (sum as an example)
-        #return sum(map(float, values))
+        log(values)
+
         values = [list(map(float, v)) for v in values]
         
         mean1 = sum([v[0] for v in values]) / len(values)

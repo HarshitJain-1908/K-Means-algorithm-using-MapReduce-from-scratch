@@ -7,24 +7,39 @@ from mapper_pb2_grpc import MapperServicer, add_MapperServicer_to_server
 from mapper_pb2 import MapperDataResponse
 from reducer_pb2_grpc import ReducerStub
 import os
+import logging
+
+def log(message):
+    logging.info(message)
 
 class MapperServicer(MapperServicer):
+    def __init__(self, port, mapper_id):
+        self.port = port
+        self.mapper_id = mapper_id
+        print(self.mapper_id)
+
+        logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    filename=f'dump/M{self.mapper_id}_dump.txt',
+                    filemode='w')
+        
     def MapData(self, request, context):
         # Implement the logic to process the shard data in the mapper
-        print(f"Mapper {request.mapper_id} received shard data: {request.shard_file}, {request.start}, {request.end}")
+        log(f"Mapper {request.mapper_id} received shard data: {request.shard_file}, {request.start}, {request.end}")
         # Process the shard data and return the result
         self.Map(request.shard_file, request.start, request.end, request.centroids, request.R)
         
         # if request.mapper_id == 2:
-        #     print("sleeping")
+        #     log("sleeping")
         #     time.sleep(4)
 
         return MapperResponse(result="Processed shard data")
-    
+
+    #Map function
     def Map(self, shard_file, start, end, centroids, R):
 
         kv_pairs = {}
-        # print("centroids", centroids)
+        # log("centroids", centroids)
         with open(f"data/input/{shard_file}") as f:
             lines = f.readlines()
             lines = lines[start:end]
@@ -41,32 +56,26 @@ class MapperServicer(MapperServicer):
     def Partition(self, kv_pairs, R):
     
         # write the processed data to a new file
-        if not os.path.exists(f"data/Mappers/M{self.port}"):
-            os.makedirs(f"data/Mappers/M{self.port}")
+        if not os.path.exists(f"data/Mappers/M{self.mapper_id}"):
+            os.makedirs(f"data/Mappers/M{self.mapper_id}")
         
         # delete all files in the directory
-        for f in os.listdir(f"data/Mappers/M{self.port}"):
-            os.remove(os.path.join(f"data/Mappers/M{self.port}", f))
+        for f in os.listdir(f"data/Mappers/M{self.mapper_id}"):
+            os.remove(os.path.join(f"data/Mappers/M{self.mapper_id}", f))
         
-        for r in range(0, R):
-            open(f"data/Mappers/M{self.port}/partition_{r}.txt", "w")
+        for r in range(1, R+1):
+            open(f"data/Mappers/M{self.mapper_id}/partition_{r}.txt", "w")
 
         for k, values in kv_pairs.items():
-            partition = k % R
-            with open(f"data/Mappers/M{self.port}/partition_{partition}.txt", "a") as f:
+            partition = k % R + 1
+            with open(f"data/Mappers/M{self.mapper_id}/partition_{partition}.txt", "a") as f:
                 for line in kv_pairs[k]:
                     f.write(str(k) + "," + str(line) + '\n')
-            # with grpc.insecure_channel(f'localhost:{7000 + partition}') as channel:
-            #     stub = ReducerStub(channel)
-            #     for value in values:
-            #         stub.SendReduceData(ReduceData(key=str(k), value=str(value)))
-        # print(f"Data sent to reducer {partition}")
 
     def Mapper2ReduceData(self, request, context):
-        print("in mapper2reducedata")
-        print(request)
+        log(f"Mapper {self.mapper_id} send intermediate data to reducers")
         reducer_id = request.reducer_id
-        partition_filename = f"data/Mappers/M{self.port}/partition_{reducer_id}.txt"
+        partition_filename = f"data/Mappers/M{self.mapper_id}/partition_{reducer_id}.txt"
         
         response = MapperDataResponse()
         if os.path.exists(partition_filename):
@@ -74,17 +83,14 @@ class MapperServicer(MapperServicer):
                 for line in f:
                     key, value = line.strip().split(',', 1)
                     response.data.add(key=key, value=value)
-            print(f"Data sent to reducer {reducer_id}")
+            log(f"Data sent to reducer {reducer_id}")
         else:
-            print(f"No data found for reducer {reducer_id}")
+            log(f"No data found for reducer {reducer_id}")
         
         return response
 
-    def __init__(self, port):
-        self.port = port
-
 def nearest_centroid(coords, centroids):
-    # print("coords", coords)
+    # log("coords", coords)
     nc_key = -1
     min_dist = 1e8
     for c in centroids:
@@ -92,12 +98,12 @@ def nearest_centroid(coords, centroids):
         if dist < min_dist:
             nc_key = c.centroid_id
             min_dist = dist
-    # print("nc_key", nc_key)
+    # log("nc_key", nc_key)
     return nc_key
             
 def serve(port):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    mapper = MapperServicer(int(port) - 5000)
+    mapper = MapperServicer(port, int(port) - 6000)
     add_MapperServicer_to_server(mapper, server)
     server.add_insecure_port(f"[::]:{port}")
     server.start()

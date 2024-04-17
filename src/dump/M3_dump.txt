@@ -1,0 +1,91 @@
+2024-04-17 14:12:04,513 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,513 INFO Data sent to reducer 3
+2024-04-17 14:12:04,537 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,537 INFO Data sent to reducer 1
+2024-04-17 14:12:04,558 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,559 INFO Data sent to reducer 5
+2024-04-17 14:12:04,585 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,586 INFO Data sent to reducer 5
+2024-04-17 14:12:04,620 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,620 INFO Data sent to reducer 2
+2024-04-17 14:12:04,620 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,620 INFO Data sent to reducer 4
+2024-04-17 14:12:04,663 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,664 INFO Data sent to reducer 4
+2024-04-17 14:12:04,678 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,678 INFO Data sent to reducer 4
+2024-04-17 14:12:04,680 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,680 INFO Data sent to reducer 5
+2024-04-17 14:12:04,709 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,710 INFO Data sent to reducer 4
+2024-04-17 14:12:04,544 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,544 INFO Data sent to reducer 3
+2024-04-17 14:12:04,576 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,576 INFO Data sent to reducer 3
+2024-04-17 14:12:04,584 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,584 INFO Data sent to reducer 2
+2024-04-17 14:12:04,606 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,607 INFO Data sent to reducer 5
+2024-04-17 14:12:04,640 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,640 INFO Data sent to reducer 5
+2024-04-17 14:12:04,649 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,650 INFO Data sent to reducer 2
+2024-04-17 14:12:04,664 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,664 INFO Data sent to reducer 3
+2024-04-17 14:12:04,665 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,665 INFO Data sent to reducer 1
+2024-04-17 14:12:04,676 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,677 INFO Data sent to reducer 1
+2024-04-17 14:12:04,711 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,711 INFO Data sent to reducer 2
+2024-04-17 14:12:04,573 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,573 INFO Data sent to reducer 1
+2024-04-17 14:12:04,621 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,621 INFO Data sent to reducer 1
+2024-04-17 14:12:04,693 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,693 INFO Data sent to reducer 3
+rmediate data to reducers
+2024-04-17 14:12:04,602 INFO Data sent to reducer 2
+2024-04-17 14:12:04,603 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,604 INFO Data sent to reducer 4
+2024-04-17 14:12:04,604 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,604 INFO Data sent to reducer 1
+2024-04-17 14:12:04,621 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,621 INFO Data sent to reducer 3
+2024-04-17 14:12:04,648 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,648 INFO Data sent to reducer 3
+2024-04-17 14:12:04,692 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,693 INFO Data sent to reducer 5
+2024-04-17 14:12:04,694 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,694 INFO Data sent to reducer 1
+2024-04-17 14:12:04,710 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,711 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,711 INFO Data sent to reducer 5
+2024-04-17 14:12:04,711 INFO Data sent to reducer 3
+19 INFO Data sent to reducer 5
+2024-04-17 14:12:04,558 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,558 INFO Data sent to reducer 4
+2024-04-17 14:12:04,589 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,589 INFO Data sent to reducer 4
+2024-04-17 14:12:04,649 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,649 INFO Data sent to reducer 1
+2024-04-17 14:12:04,663 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,663 INFO Data sent to reducer 2
+2024-04-17 14:12:04,676 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,677 INFO Data sent to reducer 2
+2024-04-17 14:12:04,677 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,677 INFO Data sent to reducer 3
+2024-04-17 14:12:04,712 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,712 INFO Data sent to reducer 1
+pper 3 send intermediate data to reducers
+2024-04-17 14:12:04,607 INFO Data sent to reducer 3
+2024-04-17 14:12:04,619 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,619 INFO Data sent to reducer 5
+2024-04-17 14:12:04,642 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,642 INFO Data sent to reducer 4
+2024-04-17 14:12:04,665 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,666 INFO Data sent to reducer 5
+2024-04-17 14:12:04,693 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,693 INFO Data sent to reducer 2
+2024-04-17 14:12:04,693 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 14:12:04,694 INFO Data sent to reducer 4
