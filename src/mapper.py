@@ -8,6 +8,7 @@ from mapper_pb2 import MapperDataResponse
 from reducer_pb2_grpc import ReducerStub
 import os
 import logging
+import random
 
 def log(message):
     logging.info(message)
@@ -25,13 +26,17 @@ class MapperServicer(MapperServicer):
     def MapData(self, request, context):
         # Implement the logic to process the shard data in the mapper
         log(f"Mapper {request.mapper_id} received shard data: {request.shard_file}, {request.start}, {request.end}")
+        
+        prob_failure = 0.25
+        if random.random() < prob_failure:
+            print("Failed to process shard data in Mapper", request.mapper_id)
+            return MapperResponse(result="Failed")
         # Process the shard data and return the result
         self.Map(request.shard_file, request.start, request.end, request.centroids, request.R)
         
         # if request.mapper_id == 2:
         #     log("sleeping")
         #     time.sleep(4)
-
         return MapperResponse(result="Processed shard data")
 
     #Map function

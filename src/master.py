@@ -56,29 +56,66 @@ def create_shards(num_mappers):
 
     return shard_map
 
-def start_map_phase(shard_map, centroids, num_reducers):
-    log("Starting map phase...")
-    # Create a ThreadPoolExecutor
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        # Submit tasks to thread pool
-        futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
+# def start_map_phase(shard_map, centroids, num_reducers):
+#     log("Starting map phase...")
+#     # Create a ThreadPoolExecutor
+#     with concurrent.futures.ThreadPoolExecutor() as executor:
+#         # Submit tasks to thread pool
+#         futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
 
-        results = {}
-        for future in concurrent.futures.as_completed(futures):
-            mapper_id = futures[future]
-            try:
-                result = future.result()
-                results[mapper_id] = result
-                log(f"Mapper {mapper_id} response: {result}")
-            except Exception as exc:
-                log(f'Mapper {mapper_id} generated an exception: {exc}')
-        return results
+#         results = {}
+#         for future in concurrent.futures.as_completed(futures):
+#             mapper_id = futures[future]
+#             try:
+#                 result = future.result()
+#                 results[mapper_id] = result
+#                 log(f"Mapper {mapper_id} response: {result}")
+#             except Exception as exc:
+#                 log(f'Mapper {mapper_id} generated an exception: {exc}')
+#         return results
 
 def map_data(mapper_id, shard_file, start, end, centroids, num_reducers):
     log(f"Master sends to mapper {mapper_id}")
     with grpc.insecure_channel(f'localhost:{6000 + mapper_id}') as channel:
         stub = MapperStub(channel)
         return stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers)).result
+
+def start_map_phase(shard_map, centroids, num_reducers, failed_mappers, available_mappers, count):
+    log("Starting map phase...")
+    print("Starting map phase...")
+    # available_mappers = []
+    # failed_mappers = []     # contains mapper_id
+    
+    # Create a ThreadPoolExecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Submit tasks to thread pool
+        futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
+        
+        results = {}
+        for future in concurrent.futures.as_completed(futures):
+            mapper_id = futures[future]
+            try:
+                result1 = future.result()
+                results[mapper_id] = result1
+                log(f"Mapper {mapper_id} response: {result1}")
+                print("hello1")
+                print(f"Mapper {mapper_id} response: {result1}")
+                print("HI")
+
+                if result1.__eq__("Failed"):
+                    print(f"Mapper {mapper_id} failed to process shard data")
+                    print("HIIII")
+                    failed_mappers.append(futures[future])
+                
+                elif result1.__eq__("Processed shard data"):
+                    print(f"Mapper {mapper_id} successfully processed shard data")
+                    available_mappers.append(futures[future])
+                    count += 1
+                
+            except Exception as exc:
+                log(f'Mapper {mapper_id} generated an exception: {exc}')        
+                
+    return failed_mappers, available_mappers,count
 
 def start_reduce_phase(mappers, num_reducers, og_centroids):
     log("Starting reduce phase...")
@@ -160,9 +197,37 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
             log(f"Iteration {iteration + 1} begins")
             shard_map = create_shards(num_mappers)
 
+            # # Map phase
+            # start_map_phase(shard_map, centroids, num_reducers)
             # Map phase
-            start_map_phase(shard_map, centroids, num_reducers)
+            count = 0
+            available_mappers = []
+            failed_mappers = []
 
+            # failed_mappers, available_mappers, count = start_map_phase(shard_map, centroids, num_reducers, failed_mappers, available_mappers, count)
+            total_count = len(shard_map)
+
+            while (count < total_count):
+
+                failed_mappers, available_mappers, count = start_map_phase(shard_map, centroids, num_reducers, [], available_mappers, count)
+                #update the shard map with the failed mappers
+                # shard_map = {k: v for k, v in shard_map.items() if k in failed_mappers} 
+                print(f"Failed mappers: {failed_mappers}")
+                #now we need to reassign the failed mappers to the available mappers
+                new_shard_map = {}
+
+                for i in failed_mappers:
+                    if len(available_mappers) == 0:
+                        print("No available mappers")
+                        for process in p:
+                            process.terminate()
+                        sys.exit(0)
+                    mapper = available_mappers.pop(0)
+                    new_shard_map[mapper] = shard_map[i]
+                    print(f"Reassigning failed mapper {i} to mapper {mapper}")
+                
+                shard_map=new_shard_map
+            
             # Reduce phase
             new_centroids = start_reduce_phase(mappers, num_reducers, centroids)
 
@@ -192,4 +257,4 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
         process.terminate()
 
 if __name__ == "__main__":
-    main(num_mappers = 4, num_reducers = 2, num_centroids = 5, max_iterations = 50)
+    main(num_mappers = 4, num_reducers = 2, num_centroids = 5, max_iterations = 10)
