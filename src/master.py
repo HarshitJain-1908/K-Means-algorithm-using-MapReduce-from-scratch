@@ -169,7 +169,7 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
             log("New centroids: " + ", ".join(f"Centroid {c.centroid_id}: ({c.x}, {c.y})" for c in new_centroids))
 
             # Check for convergence or update centroids
-            if has_converged(centroids, new_centroids, tolerance=0.01):
+            if has_converged(centroids, new_centroids, tolerance=0.0001):
                 log("Convergence reached.")
                 print("Convergence reached")
                 for process in p:
@@ -192,4 +192,4 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
         process.terminate()
 
 if __name__ == "__main__":
-    main(num_mappers = 4, num_reducers = 6, num_centroids = 3, max_iterations = 50)
+    main(num_mappers = 4, num_reducers = 2, num_centroids = 5, max_iterations = 50)

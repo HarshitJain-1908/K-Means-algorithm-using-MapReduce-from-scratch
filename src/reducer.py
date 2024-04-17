@@ -39,11 +39,14 @@ class ReducerServicer(ReducerServicer):
             try:
                 request = SendDataRequest(reducer_id=self.reducer_id)
                 response = stub.Mapper2ReduceData(request)  # Assuming an Empty message triggers sending data
+                
+                #shuffling and sorting
                 for kv in response.data:
                     if kv.key not in self.data:
                         self.data[kv.key] = []
                     self.data[kv.key].append(kv.value)
                     log(f"Data received from mapper {ip}:{port} for key {kv.key}: {kv.value}")
+                    
             except grpc.RpcError as e:
                 log(f"Failed to receive data from mapper {ip}:{port}: {str(e)}")
             finally:
@@ -54,6 +57,10 @@ class ReducerServicer(ReducerServicer):
 
         log(f"Reducer {self.reducer_id} started reduce phase")
 
+        # Create a file to store the reduced data
+        with open(f"data/Reducers/R{self.reducer_id}.txt", "w") as f:
+            f.write("")
+        
         if not(os.path.exists(f"data/Reducers")):
             os.makedirs(f"data/Reducers")
 
@@ -71,8 +78,8 @@ class ReducerServicer(ReducerServicer):
             
             newcentroids.append(Centroid(centroid_id=int(key), x=res[1][0], y=res[1][1]))
             
-            with open(f"data/Reducers/R{self.reducer_id}.txt", "w") as f:
-                f.write(str(res))
+            with open(f"data/Reducers/R{self.reducer_id}.txt", "a") as f:
+                f.write(str(res) + '\n')
         
         return ReducerResponse(result="Reduction completed", newcentroids=newcentroids)
 
