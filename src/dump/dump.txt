@@ -1,201 +1,183 @@
-2024-04-17 14:33:09,576 INFO Mapper 0 started with PID 29601
-2024-04-17 14:33:09,577 INFO Mapper 1 started with PID 29602
-2024-04-17 14:33:09,577 INFO Mapper 2 started with PID 29603
-2024-04-17 14:33:09,578 INFO Mapper 3 started with PID 29604
-2024-04-17 14:33:09,579 INFO Reducer 0 started with PID 29605
-2024-04-17 14:33:09,581 INFO Reducer 1 started with PID 29606
-2024-04-17 14:33:09,597 INFO Reducer 2 started with PID 29607
-2024-04-17 14:33:09,604 INFO Reducer 3 started with PID 29608
-2024-04-17 14:33:09,615 INFO Reducer 4 started with PID 29609
-2024-04-17 14:33:09,623 INFO Reducer 5 started with PID 29610
-2024-04-17 14:33:09,623 INFO Initial random centroids: Centroid 1: (8.326098915068293, 7.597808851472819), Centroid 2: (4.040555801692147, 4.604928177917279), Centroid 3: (6.615164432728831, 1.7644323483853008)
-2024-04-17 14:33:09,623 INFO Iteration 1 begins
-2024-04-17 14:33:09,624 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:09,624 INFO Starting map phase...
-2024-04-17 14:33:09,632 INFO Master sends to mapper 1
-2024-04-17 14:33:09,639 INFO Master sends to mapper 2
-2024-04-17 14:33:09,648 INFO Master sends to mapper 3
-2024-04-17 14:33:09,657 INFO Master sends to mapper 4
-2024-04-17 14:33:09,684 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:09,685 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:09,685 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:09,689 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:09,690 INFO Starting reduce phase...
-2024-04-17 14:33:09,741 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:09,741 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:09,755 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:09,761 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:09,763 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:09,768 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:09,771 INFO New centroids: Centroid 1: (6.985185185185186, 2.7898148148148127), Centroid 2: (-0.057352941176470565, 8.330882352941178), Centroid 3: (9.741592920353982, 0.7663716814159293)
-2024-04-17 14:33:09,771 INFO Iteration 2 begins
-2024-04-17 14:33:09,771 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:09,771 INFO Starting map phase...
-2024-04-17 14:33:09,771 INFO Master sends to mapper 1
-2024-04-17 14:33:09,772 INFO Master sends to mapper 2
-2024-04-17 14:33:09,772 INFO Master sends to mapper 3
-2024-04-17 14:33:09,775 INFO Master sends to mapper 4
-2024-04-17 14:33:09,779 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:09,779 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:09,782 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:09,782 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:09,782 INFO Starting reduce phase...
-2024-04-17 14:33:09,795 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:09,800 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:09,800 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:09,800 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:09,802 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:09,805 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:09,805 INFO New centroids: Centroid 1: (8.371428571428572, 2.771428571428572), Centroid 2: (2.9816666666666674, 5.989999999999999), Centroid 3: (5.029166666666666, 4.091666666666668)
-2024-04-17 14:33:09,805 INFO Iteration 3 begins
-2024-04-17 14:33:09,805 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:09,805 INFO Starting map phase...
-2024-04-17 14:33:09,805 INFO Master sends to mapper 1
-2024-04-17 14:33:09,806 INFO Master sends to mapper 2
-2024-04-17 14:33:09,807 INFO Master sends to mapper 3
-2024-04-17 14:33:09,807 INFO Master sends to mapper 4
-2024-04-17 14:33:09,808 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:09,809 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:09,810 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:09,810 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:09,811 INFO Starting reduce phase...
-2024-04-17 14:33:09,822 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:09,823 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:09,824 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:09,826 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:09,828 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:09,828 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:09,828 INFO New centroids: Centroid 1: (9.547368421052632, 1.0473684210526317), Centroid 2: (-0.17500000000000002, 8.141666666666667), Centroid 3: (4.439849624060148, 4.81954887218045)
-2024-04-17 14:33:09,828 INFO Iteration 4 begins
-2024-04-17 14:33:09,829 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:09,829 INFO Starting map phase...
-2024-04-17 14:33:09,829 INFO Master sends to mapper 1
-2024-04-17 14:33:09,829 INFO Master sends to mapper 2
-2024-04-17 14:33:09,830 INFO Master sends to mapper 3
-2024-04-17 14:33:09,830 INFO Master sends to mapper 4
-2024-04-17 14:33:09,831 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:09,832 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:09,832 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,837 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,838 INFO Starting reduce phase...
-2024-04-17 14:33:13,859 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,861 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,861 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,861 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,862 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,865 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,865 INFO New centroids: Centroid 1: (7.469565217391301, 2.416770186335402), Centroid 2: (-0.17500000000000002, 8.141666666666667), Centroid 3: (2.9042253521126753, 5.941549295774648)
-2024-04-17 14:33:13,866 INFO Iteration 5 begins
-2024-04-17 14:33:13,866 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,866 INFO Starting map phase...
-2024-04-17 14:33:13,866 INFO Master sends to mapper 1
-2024-04-17 14:33:13,866 INFO Master sends to mapper 2
-2024-04-17 14:33:13,866 INFO Master sends to mapper 3
-2024-04-17 14:33:13,866 INFO Master sends to mapper 4
-2024-04-17 14:33:13,868 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,870 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,870 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,870 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,870 INFO Starting reduce phase...
-2024-04-17 14:33:13,880 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,882 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,882 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,882 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,883 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,884 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,885 INFO New centroids: Centroid 1: (9.54736842105263, 1.0473684210526315), Centroid 2: (2.270370370370372, 6.697530864197531), Centroid 3: (2.9042253521126753, 5.941549295774648)
-2024-04-17 14:33:13,885 INFO Iteration 6 begins
-2024-04-17 14:33:13,885 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,885 INFO Starting map phase...
-2024-04-17 14:33:13,885 INFO Master sends to mapper 1
-2024-04-17 14:33:13,885 INFO Master sends to mapper 2
-2024-04-17 14:33:13,886 INFO Master sends to mapper 3
-2024-04-17 14:33:13,886 INFO Master sends to mapper 4
-2024-04-17 14:33:13,887 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,888 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,888 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,888 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,888 INFO Starting reduce phase...
-2024-04-17 14:33:13,899 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,899 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,900 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,900 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,901 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,902 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,902 INFO New centroids: Centroid 1: (9.23076923076923, 1.5115384615384615), Centroid 2: (1.954838709677421, 6.883870967741936), Centroid 3: (4.439849624060148, 4.81954887218045)
-2024-04-17 14:33:13,902 INFO Iteration 7 begins
-2024-04-17 14:33:13,903 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,903 INFO Starting map phase...
-2024-04-17 14:33:13,903 INFO Master sends to mapper 1
-2024-04-17 14:33:13,903 INFO Master sends to mapper 2
-2024-04-17 14:33:13,903 INFO Master sends to mapper 3
-2024-04-17 14:33:13,904 INFO Master sends to mapper 4
-2024-04-17 14:33:13,905 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,905 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,906 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,906 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,906 INFO Starting reduce phase...
-2024-04-17 14:33:13,918 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,919 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,919 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,919 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,921 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,921 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,922 INFO New centroids: Centroid 1: (9.48481012658228, 1.1164556962025318), Centroid 2: (-0.17500000000000004, 8.141666666666666)
-2024-04-17 14:33:13,922 INFO Iteration 8 begins
-2024-04-17 14:33:13,922 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,922 INFO Starting map phase...
-2024-04-17 14:33:13,922 INFO Master sends to mapper 1
-2024-04-17 14:33:13,923 INFO Master sends to mapper 2
-2024-04-17 14:33:13,923 INFO Master sends to mapper 3
-2024-04-17 14:33:13,923 INFO Master sends to mapper 4
-2024-04-17 14:33:13,925 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,926 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,926 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,926 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,926 INFO Starting reduce phase...
-2024-04-17 14:33:13,936 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,938 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,938 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,938 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,938 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,939 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,939 INFO New centroids: Centroid 1: (8.669346733668332, 1.6402010050251243), Centroid 2: (-0.21333333333333332, 8.2), Centroid 3: (-0.17500000000000004, 8.141666666666666)
-2024-04-17 14:33:13,939 INFO Iteration 9 begins
-2024-04-17 14:33:13,939 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,939 INFO Starting map phase...
-2024-04-17 14:33:13,939 INFO Master sends to mapper 1
-2024-04-17 14:33:13,940 INFO Master sends to mapper 2
-2024-04-17 14:33:13,940 INFO Master sends to mapper 3
-2024-04-17 14:33:13,940 INFO Master sends to mapper 4
-2024-04-17 14:33:13,942 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,942 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,942 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,943 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,943 INFO Starting reduce phase...
-2024-04-17 14:33:13,953 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,955 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,955 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,956 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,956 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,956 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,957 INFO New centroids: Centroid 1: (7.173743016759772, 2.5921787709497193), Centroid 2: (-0.18837209302325586, 8.246511627906976), Centroid 3: (1.1689655172413795, 7.002586206896552)
-2024-04-17 14:33:13,957 INFO Iteration 10 begins
-2024-04-17 14:33:13,957 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
-2024-04-17 14:33:13,957 INFO Starting map phase...
-2024-04-17 14:33:13,957 INFO Master sends to mapper 1
-2024-04-17 14:33:13,957 INFO Master sends to mapper 2
-2024-04-17 14:33:13,957 INFO Master sends to mapper 3
-2024-04-17 14:33:13,957 INFO Master sends to mapper 4
-2024-04-17 14:33:13,960 INFO Mapper 2 response: Processed shard data
-2024-04-17 14:33:13,960 INFO Mapper 3 response: Processed shard data
-2024-04-17 14:33:13,960 INFO Mapper 1 response: Processed shard data
-2024-04-17 14:33:13,960 INFO Mapper 4 response: Processed shard data
-2024-04-17 14:33:13,961 INFO Starting reduce phase...
-2024-04-17 14:33:13,971 INFO Reducer 3 started reduce phase: Reduction completed
-2024-04-17 14:33:13,972 INFO Reducer 4 started reduce phase: Reduction completed
-2024-04-17 14:33:13,972 INFO Reducer 5 started reduce phase: Reduction completed
-2024-04-17 14:33:13,972 INFO Reducer 1 started reduce phase: Reduction completed
-2024-04-17 14:33:13,973 INFO Reducer 0 started reduce phase: Reduction completed
-2024-04-17 14:33:13,973 INFO Reducer 2 started reduce phase: Reduction completed
-2024-04-17 14:33:13,973 INFO New centroids: Centroid 1: (9.364444444444445, 1.3155555555555554), Centroid 2: (1.9577464788732342, 6.641549295774649), Centroid 3: (3.548333333333334, 5.5283333333333315)
+2024-04-17 16:46:42,779 INFO Mapper 0 started with PID 14276
+2024-04-17 16:46:42,809 INFO Mapper 1 started with PID 7852
+2024-04-17 16:46:42,842 INFO Mapper 2 started with PID 20848
+2024-04-17 16:46:42,881 INFO Mapper 3 started with PID 27124
+2024-04-17 16:46:42,953 INFO Reducer 0 started with PID 24260
+2024-04-17 16:46:42,998 INFO Reducer 1 started with PID 22808
+2024-04-17 16:46:43,044 INFO Reducer 2 started with PID 28556
+2024-04-17 16:46:43,092 INFO Reducer 3 started with PID 8372
+2024-04-17 16:46:43,175 INFO Reducer 4 started with PID 28572
+2024-04-17 16:46:43,309 INFO Reducer 5 started with PID 12372
+2024-04-17 16:46:43,310 INFO Initial random centroids: Centroid 1: (4.169411888316445, 7.5780975620010445), Centroid 2: (8.584822377847953, 4.473040996968454), Centroid 3: (7.564068890963891, 3.965139214879466)
+2024-04-17 16:46:43,310 INFO Iteration 1 begins
+2024-04-17 16:46:43,311 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:43,311 INFO Starting map phase...
+2024-04-17 16:46:43,351 INFO Master sends to mapper 1
+2024-04-17 16:46:43,362 INFO Master sends to mapper 2
+2024-04-17 16:46:43,364 INFO Master sends to mapper 3
+2024-04-17 16:46:43,387 INFO Master sends to mapper 4
+2024-04-17 16:46:44,463 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:44,485 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:44,748 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:44,984 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:44,985 INFO Starting reduce phase...
+2024-04-17 16:46:45,110 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:45,135 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:45,145 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:45,188 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:45,371 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:45,374 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:45,377 INFO New centroids: Centroid 1: (-0.17500000000000002, 8.141666666666667), Centroid 2: (10.3, 0.29000000000000004), Centroid 3: (8.71111111111111, 1.8888888888888888)
+2024-04-17 16:46:45,377 INFO Iteration 2 begins
+2024-04-17 16:46:45,379 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:45,380 INFO Starting map phase...
+2024-04-17 16:46:45,381 INFO Master sends to mapper 1
+2024-04-17 16:46:45,384 INFO Master sends to mapper 2
+2024-04-17 16:46:45,386 INFO Master sends to mapper 3
+2024-04-17 16:46:45,388 INFO Master sends to mapper 4
+2024-04-17 16:46:45,419 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:45,424 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:45,430 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:45,432 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:45,433 INFO Starting reduce phase...
+2024-04-17 16:46:45,599 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:45,600 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:45,600 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:45,603 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:45,639 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:45,649 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:45,659 INFO New centroids: Centroid 1: (-0.17500000000000004, 8.141666666666666), Centroid 2: (10.35, 1.5265566588595904e-17), Centroid 3: (8.655555555555555, 2.211111111111111)
+2024-04-17 16:46:45,659 INFO Iteration 3 begins
+2024-04-17 16:46:45,661 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:45,661 INFO Starting map phase...
+2024-04-17 16:46:45,663 INFO Master sends to mapper 1
+2024-04-17 16:46:45,667 INFO Master sends to mapper 2
+2024-04-17 16:46:45,669 INFO Master sends to mapper 3
+2024-04-17 16:46:45,672 INFO Master sends to mapper 4
+2024-04-17 16:46:45,689 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:45,702 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:45,704 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:45,711 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:45,712 INFO Starting reduce phase...
+2024-04-17 16:46:45,876 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:45,915 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:45,916 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:45,918 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:45,920 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:45,983 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:46,008 INFO New centroids: Centroid 1: (-0.17500000000000002, 8.141666666666666), Centroid 2: (10.366666666666667, -0.09666666666666666), Centroid 3: (8.637037037037036, 2.3185185185185184)
+2024-04-17 16:46:46,009 INFO Iteration 4 begins
+2024-04-17 16:46:46,010 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:46,011 INFO Starting map phase...
+2024-04-17 16:46:46,012 INFO Master sends to mapper 1
+2024-04-17 16:46:46,016 INFO Master sends to mapper 2
+2024-04-17 16:46:46,042 INFO Master sends to mapper 3
+2024-04-17 16:46:46,067 INFO Master sends to mapper 4
+2024-04-17 16:46:46,070 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:46,088 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:46,090 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:46,103 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:46,104 INFO Starting reduce phase...
+2024-04-17 16:46:46,226 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:46,228 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:46,232 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:46,237 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:46,239 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:46,239 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:46,244 INFO New centroids: Centroid 1: (-0.17500000000000002, 8.141666666666666), Centroid 2: (10.375, -0.14499999999999996), Centroid 3: (8.627777777777778, 2.3722222222222222)
+2024-04-17 16:46:46,244 INFO Iteration 5 begins
+2024-04-17 16:46:46,245 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:46,246 INFO Starting map phase...
+2024-04-17 16:46:46,254 INFO Master sends to mapper 1
+2024-04-17 16:46:46,259 INFO Master sends to mapper 2
+2024-04-17 16:46:46,264 INFO Master sends to mapper 3
+2024-04-17 16:46:46,268 INFO Master sends to mapper 4
+2024-04-17 16:46:46,285 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:46,290 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:46,294 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:46,298 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:46,299 INFO Starting reduce phase...
+2024-04-17 16:46:46,398 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:46,410 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:46,419 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:46,422 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:46,424 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:46,425 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:46,428 INFO New centroids: Centroid 1: (-0.17499999999999996, 8.141666666666666), Centroid 2: (10.38, -0.17399999999999996), Centroid 3: (8.622222222222225, 2.4044444444444446)
+2024-04-17 16:46:46,428 INFO Iteration 6 begins
+2024-04-17 16:46:46,430 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:46,430 INFO Starting map phase...
+2024-04-17 16:46:46,445 INFO Master sends to mapper 1
+2024-04-17 16:46:46,449 INFO Master sends to mapper 2
+2024-04-17 16:46:46,473 INFO Master sends to mapper 3
+2024-04-17 16:46:46,480 INFO Master sends to mapper 4
+2024-04-17 16:46:46,500 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:46,509 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:46,513 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:46,521 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:46,523 INFO Starting reduce phase...
+2024-04-17 16:46:46,646 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:46,646 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:46,654 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:46,662 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:46,663 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:46,663 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:46,666 INFO New centroids: Centroid 1: (-0.17499999999999993, 8.141666666666667), Centroid 2: (10.383333333333333, -0.1933333333333333), Centroid 3: (8.618518518518522, 2.4259259259259265)
+2024-04-17 16:46:46,667 INFO Iteration 7 begins
+2024-04-17 16:46:46,668 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:46,669 INFO Starting map phase...
+2024-04-17 16:46:46,671 INFO Master sends to mapper 1
+2024-04-17 16:46:46,675 INFO Master sends to mapper 2
+2024-04-17 16:46:46,679 INFO Master sends to mapper 3
+2024-04-17 16:46:46,682 INFO Master sends to mapper 4
+2024-04-17 16:46:46,702 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:46,704 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:46,707 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:46,713 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:46,714 INFO Starting reduce phase...
+2024-04-17 16:46:46,851 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:46,857 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:46,857 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:46,863 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:46,865 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:46,872 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:46,879 INFO New centroids: Centroid 1: (-0.17499999999999993, 8.141666666666667), Centroid 2: (10.385714285714286, -0.20714285714285713), Centroid 3: (8.61587301587302, 2.441269841269842)
+2024-04-17 16:46:46,880 INFO Iteration 8 begins
+2024-04-17 16:46:46,881 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:46,882 INFO Starting map phase...
+2024-04-17 16:46:46,884 INFO Master sends to mapper 1
+2024-04-17 16:46:46,900 INFO Master sends to mapper 2
+2024-04-17 16:46:46,917 INFO Master sends to mapper 3
+2024-04-17 16:46:46,930 INFO Master sends to mapper 4
+2024-04-17 16:46:46,942 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:46,962 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:46,964 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:46,980 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:46,983 INFO Starting reduce phase...
+2024-04-17 16:46:47,139 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:47,169 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:47,175 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:47,179 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:47,181 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:47,183 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:47,186 INFO New centroids: Centroid 1: (-0.1749999999999999, 8.141666666666667), Centroid 2: (10.3875, -0.21750000000000003), Centroid 3: (8.613888888888892, 2.4527777777777784)
+2024-04-17 16:46:47,186 INFO Iteration 9 begins
+2024-04-17 16:46:47,188 INFO Shard map created: {1: ('points.txt', 0, 7), 2: ('points.txt', 7, 15), 3: ('points.txt', 15, 23), 4: ('points.txt', 23, 31)}
+2024-04-17 16:46:47,189 INFO Starting map phase...
+2024-04-17 16:46:47,191 INFO Master sends to mapper 1
+2024-04-17 16:46:47,195 INFO Master sends to mapper 2
+2024-04-17 16:46:47,199 INFO Master sends to mapper 3
+2024-04-17 16:46:47,204 INFO Master sends to mapper 4
+2024-04-17 16:46:47,225 INFO Mapper 2 response: Processed shard data
+2024-04-17 16:46:47,225 INFO Mapper 3 response: Processed shard data
+2024-04-17 16:46:47,226 INFO Mapper 1 response: Processed shard data
+2024-04-17 16:46:47,288 INFO Mapper 4 response: Processed shard data
+2024-04-17 16:46:47,289 INFO Starting reduce phase...
+2024-04-17 16:46:47,393 INFO Reducer 0 started reduce phase: Reduction completed
+2024-04-17 16:46:47,410 INFO Reducer 3 started reduce phase: Reduction completed
+2024-04-17 16:46:47,411 INFO Reducer 5 started reduce phase: Reduction completed
+2024-04-17 16:46:47,415 INFO Reducer 4 started reduce phase: Reduction completed
+2024-04-17 16:46:47,417 INFO Reducer 2 started reduce phase: Reduction completed
+2024-04-17 16:46:47,421 INFO Reducer 1 started reduce phase: Reduction completed
+2024-04-17 16:46:47,424 INFO New centroids: Centroid 1: (-0.17499999999999996, 8.141666666666667), Centroid 2: (10.38888888888889, -0.2255555555555556), Centroid 3: (8.612345679012348, 2.461728395061729)
+2024-04-17 16:46:47,425 INFO Convergence reached.

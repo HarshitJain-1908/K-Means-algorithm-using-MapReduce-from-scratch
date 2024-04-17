@@ -66,7 +66,7 @@ class MapperServicer(MapperServicer):
             open(f"data/Mappers/M{self.mapper_id}/partition_{r}.txt", "w")
 
         for k, values in kv_pairs.items():
-            partition = k % R + 1
+            partition = k % R
             with open(f"data/Mappers/M{self.mapper_id}/partition_{partition}.txt", "a") as f:
                 for line in kv_pairs[k]:
                     f.write(str(k) + "," + str(line) + '\n')

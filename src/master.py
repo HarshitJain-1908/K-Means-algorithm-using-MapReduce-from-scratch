@@ -80,7 +80,7 @@ def map_data(mapper_id, shard_file, start, end, centroids, num_reducers):
         stub = MapperStub(channel)
         return stub.MapData(ShardData(mapper_id = mapper_id, shard_file=shard_file, start=start, end=end, centroids = centroids, R = num_reducers)).result
 
-def start_reduce_phase(mappers, num_reducers):
+def start_reduce_phase(mappers, num_reducers, og_centroids):
     log("Starting reduce phase...")
     all_new_centroids = []
     # Create a ThreadPoolExecutor
@@ -96,6 +96,10 @@ def start_reduce_phase(mappers, num_reducers):
                 log(f"Reducer {reducer_id} started reduce phase: {result}")
             except Exception as exc:
                 log(f'Reducer {reducer_id} generated an exception: {exc}')
+
+    for centroid in og_centroids:
+        if not any(c.centroid_id == centroid.centroid_id for c in all_new_centroids):
+            all_new_centroids.append(centroid)
 
     all_new_centroids.sort(key=lambda centroid: centroid.centroid_id)
 
@@ -157,23 +161,32 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
             start_map_phase(shard_map, centroids, num_reducers)
 
             # Reduce phase
-            new_centroids = start_reduce_phase(mappers, num_reducers)
+            new_centroids = start_reduce_phase(mappers, num_reducers, centroids)
 
             log("New centroids: " + ", ".join(f"Centroid {c.centroid_id}: ({c.x}, {c.y})" for c in new_centroids))
 
             # Check for convergence or update centroids
             if has_converged(centroids, new_centroids, tolerance=0.01):
                 log("Convergence reached.")
+                print("Convergence reached")
+                for process in p:
+                    process.terminate()
                 break
 
             #updating input centroids for the next iteration
             centroids = new_centroids
             iteration += 1
+            
+            
+            
         except KeyboardInterrupt:
                 for process in p:
                     print("terminating")
                     process.terminate()
                 sys.exit(0)
+                
+    for process in p:
+        process.terminate()
 
 if __name__ == "__main__":
     main(num_mappers = 4, num_reducers = 6, num_centroids = 3, max_iterations = 10)
