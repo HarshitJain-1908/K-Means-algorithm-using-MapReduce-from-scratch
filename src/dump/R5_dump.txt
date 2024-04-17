@@ -1,27 +1,66 @@
-2024-04-17 16:46:45,309 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:45,369 INFO displaying data
-2024-04-17 16:46:45,369 INFO {}
-2024-04-17 16:46:45,457 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:45,587 INFO displaying data
-2024-04-17 16:46:45,588 INFO {}
-2024-04-17 16:46:45,811 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:45,911 INFO displaying data
-2024-04-17 16:46:45,911 INFO {}
-2024-04-17 16:46:46,178 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:46,233 INFO displaying data
-2024-04-17 16:46:46,233 INFO {}
-2024-04-17 16:46:46,366 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:46,418 INFO displaying data
-2024-04-17 16:46:46,418 INFO {}
-2024-04-17 16:46:46,561 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:46,650 INFO displaying data
-2024-04-17 16:46:46,651 INFO {}
-2024-04-17 16:46:46,773 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:46,843 INFO displaying data
-2024-04-17 16:46:46,843 INFO {}
-2024-04-17 16:46:47,131 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:47,172 INFO displaying data
-2024-04-17 16:46:47,172 INFO {}
-2024-04-17 16:46:47,351 INFO Reducer 5 started reduce phase
-2024-04-17 16:46:47,412 INFO displaying data
-2024-04-17 16:46:47,413 INFO {}
+2024-04-17 17:18:25,396 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:25,483 INFO displaying data
+2024-04-17 17:18:25,484 INFO {}
+2024-04-17 17:18:25,770 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:25,854 INFO displaying data
+2024-04-17 17:18:25,854 INFO {}
+2024-04-17 17:18:25,973 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:26,032 INFO displaying data
+2024-04-17 17:18:26,032 INFO {}
+2024-04-17 17:18:26,114 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:26,183 INFO displaying data
+2024-04-17 17:18:26,183 INFO {}
+2024-04-17 17:18:26,397 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:26,436 INFO displaying data
+2024-04-17 17:18:26,437 INFO {}
+2024-04-17 17:18:26,605 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:26,661 INFO displaying data
+2024-04-17 17:18:26,662 INFO {}
+2024-04-17 17:18:26,770 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:26,842 INFO displaying data
+2024-04-17 17:18:26,842 INFO {}
+2024-04-17 17:18:27,131 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:27,196 INFO displaying data
+2024-04-17 17:18:27,196 INFO {}
+2024-04-17 17:18:27,431 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:27,498 INFO displaying data
+2024-04-17 17:18:27,499 INFO {}
+2024-04-17 17:18:27,721 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:27,784 INFO displaying data
+2024-04-17 17:18:27,785 INFO {}
+2024-04-17 17:18:27,946 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:28,032 INFO displaying data
+2024-04-17 17:18:28,032 INFO {}
+2024-04-17 17:18:28,144 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:28,204 INFO displaying data
+2024-04-17 17:18:28,205 INFO {}
+2024-04-17 17:18:28,276 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:28,358 INFO displaying data
+2024-04-17 17:18:28,358 INFO {}
+2024-04-17 17:18:28,528 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:28,593 INFO displaying data
+2024-04-17 17:18:28,593 INFO {}
+2024-04-17 17:18:28,776 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:28,842 INFO displaying data
+2024-04-17 17:18:28,842 INFO {}
+2024-04-17 17:18:29,014 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:29,069 INFO displaying data
+2024-04-17 17:18:29,069 INFO {}
+2024-04-17 17:18:29,172 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:29,265 INFO displaying data
+2024-04-17 17:18:29,265 INFO {}
+2024-04-17 17:18:29,451 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:29,502 INFO displaying data
+2024-04-17 17:18:29,502 INFO {}
+2024-04-17 17:18:29,716 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:29,770 INFO displaying data
+2024-04-17 17:18:29,770 INFO {}
+2024-04-17 17:18:29,935 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:30,003 INFO displaying data
+2024-04-17 17:18:30,003 INFO {}
+2024-04-17 17:18:30,205 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:30,262 INFO displaying data
+2024-04-17 17:18:30,262 INFO {}
+2024-04-17 17:18:30,483 INFO Reducer 5 started reduce phase
+2024-04-17 17:18:30,542 INFO displaying data
+2024-04-17 17:18:30,543 INFO {}

@@ -145,10 +145,13 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
         log(f"Reducer {i} started with PID {s.pid}")
 
     centroids = []
-
-    for i in range(num_centroids):
-        centroids.append(Centroid(centroid_id = i+1, x = random.random()*10, y = random.random()*10))
+    input_points = open('./data/input/points.txt', 'r').readlines()
+    num_points = len(input_points)
+    init_centroid_indices = random.sample(range(num_points), num_centroids)
     
+    for i in range(num_centroids):
+        centroids.append(Centroid(centroid_id = i+1, x = float(input_points[init_centroid_indices[i]].split(',')[0]), y = float(input_points[init_centroid_indices[i]].split(',')[1])))
+    print("Initial centroids: ", centroids)
     log("Initial random centroids: " + ", ".join(f"Centroid {c.centroid_id}: ({c.x}, {c.y})" for c in centroids))
 
     iteration = 0
@@ -171,7 +174,7 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
                 print("Convergence reached")
                 for process in p:
                     process.terminate()
-                break
+                sys.exit(0)
 
             #updating input centroids for the next iteration
             centroids = new_centroids
@@ -184,9 +187,9 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
                     print("terminating")
                     process.terminate()
                 sys.exit(0)
-                
+    print("Max iterations reached")            
     for process in p:
         process.terminate()
 
 if __name__ == "__main__":
-    main(num_mappers = 4, num_reducers = 6, num_centroids = 3, max_iterations = 10)
+    main(num_mappers = 4, num_reducers = 6, num_centroids = 3, max_iterations = 50)

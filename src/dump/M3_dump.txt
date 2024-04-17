@@ -1,117 +1,286 @@
-2024-04-17 16:46:44,949 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:45,082 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,086 INFO Data sent to reducer 1
-2024-04-17 16:46:45,106 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,108 INFO Data sent to reducer 2
-2024-04-17 16:46:45,130 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,131 INFO Data sent to reducer 6
-2024-04-17 16:46:45,137 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,138 INFO Data sent to reducer 3
-2024-04-17 16:46:45,359 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,359 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,360 INFO Data sent to reducer 5
-2024-04-17 16:46:45,360 INFO Data sent to reducer 4
-2024-04-17 16:46:45,400 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:45,544 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,546 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,547 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,549 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,550 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,550 INFO Data sent to reducer 6
-2024-04-17 16:46:45,553 INFO Data sent to reducer 5
-2024-04-17 16:46:45,553 INFO Data sent to reducer 4
-2024-04-17 16:46:45,555 INFO Data sent to reducer 2
-2024-04-17 16:46:45,555 INFO Data sent to reducer 1
-2024-04-17 16:46:45,562 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,563 INFO Data sent to reducer 3
-2024-04-17 16:46:45,681 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:45,831 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,838 INFO Data sent to reducer 1
-2024-04-17 16:46:45,877 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,880 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,880 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,881 INFO Data sent to reducer 4
-2024-04-17 16:46:45,881 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,884 INFO Data sent to reducer 5
-2024-04-17 16:46:45,882 INFO Data sent to reducer 3
-2024-04-17 16:46:45,885 INFO Data sent to reducer 2
-2024-04-17 16:46:45,955 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:45,956 INFO Data sent to reducer 6
-2024-04-17 16:46:46,075 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:46,174 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,178 INFO Data sent to reducer 1
-2024-04-17 16:46:46,194 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,195 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,196 INFO Data sent to reducer 2
-2024-04-17 16:46:46,199 INFO Data sent to reducer 4
-2024-04-17 16:46:46,205 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,206 INFO Data sent to reducer 3
-2024-04-17 16:46:46,213 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,214 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,215 INFO Data sent to reducer 5
-2024-04-17 16:46:46,216 INFO Data sent to reducer 6
-2024-04-17 16:46:46,271 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:46,369 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,374 INFO Data sent to reducer 1
-2024-04-17 16:46:46,388 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,389 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,390 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,391 INFO Data sent to reducer 3
-2024-04-17 16:46:46,391 INFO Data sent to reducer 4
-2024-04-17 16:46:46,395 INFO Data sent to reducer 2
-2024-04-17 16:46:46,398 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,399 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,400 INFO Data sent to reducer 6
-2024-04-17 16:46:46,402 INFO Data sent to reducer 5
-2024-04-17 16:46:46,488 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:46,609 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,610 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,611 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,613 INFO Data sent to reducer 4
-2024-04-17 16:46:46,615 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,616 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,617 INFO Data sent to reducer 3
-2024-04-17 16:46:46,618 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,620 INFO Data sent to reducer 2
-2024-04-17 16:46:46,621 INFO Data sent to reducer 6
-2024-04-17 16:46:46,622 INFO Data sent to reducer 5
-2024-04-17 16:46:46,623 INFO Data sent to reducer 1
-2024-04-17 16:46:46,690 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:46,806 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,807 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,808 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,809 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,809 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,810 INFO Data sent to reducer 4
-2024-04-17 16:46:46,813 INFO Data sent to reducer 2
-2024-04-17 16:46:46,814 INFO Data sent to reducer 3
-2024-04-17 16:46:46,814 INFO Data sent to reducer 5
-2024-04-17 16:46:46,814 INFO Data sent to reducer 1
-2024-04-17 16:46:46,819 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:46,821 INFO Data sent to reducer 6
-2024-04-17 16:46:46,939 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:47,115 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,119 INFO Data sent to reducer 1
-2024-04-17 16:46:47,148 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,149 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,149 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,150 INFO Data sent to reducer 4
-2024-04-17 16:46:47,151 INFO Data sent to reducer 3
-2024-04-17 16:46:47,152 INFO Data sent to reducer 2
-2024-04-17 16:46:47,158 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,159 INFO Data sent to reducer 5
-2024-04-17 16:46:47,166 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,168 INFO Data sent to reducer 6
-2024-04-17 16:46:47,207 INFO Mapper 3 received shard data: points.txt, 15, 23
-2024-04-17 16:46:47,369 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,373 INFO Data sent to reducer 1
-2024-04-17 16:46:47,384 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,384 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,385 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,387 INFO Data sent to reducer 3
-2024-04-17 16:46:47,388 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,388 INFO Data sent to reducer 4
-2024-04-17 16:46:47,389 INFO Data sent to reducer 6
-2024-04-17 16:46:47,389 INFO Mapper 3 send intermediate data to reducers
-2024-04-17 16:46:47,392 INFO Data sent to reducer 5
-2024-04-17 16:46:47,393 INFO Data sent to reducer 2
+2024-04-17 17:18:25,081 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:25,471 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,472 INFO Data sent to reducer 5
+2024-04-17 17:18:25,482 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,483 INFO Data sent to reducer 4
+2024-04-17 17:18:25,492 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,496 INFO Data sent to reducer 2
+2024-04-17 17:18:25,501 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,502 INFO Data sent to reducer 1
+2024-04-17 17:18:25,506 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,510 INFO Data sent to reducer 3
+2024-04-17 17:18:25,696 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,697 INFO Data sent to reducer 6
+2024-04-17 17:18:25,724 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:25,821 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,823 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,824 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,825 INFO Data sent to reducer 4
+2024-04-17 17:18:25,826 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,827 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,827 INFO Data sent to reducer 6
+2024-04-17 17:18:25,829 INFO Data sent to reducer 5
+2024-04-17 17:18:25,830 INFO Data sent to reducer 1
+2024-04-17 17:18:25,833 INFO Data sent to reducer 2
+2024-04-17 17:18:25,837 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,842 INFO Data sent to reducer 3
+2024-04-17 17:18:25,887 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:25,988 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,991 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,992 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,993 INFO Data sent to reducer 1
+2024-04-17 17:18:25,994 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:25,995 INFO Data sent to reducer 2
+2024-04-17 17:18:26,000 INFO Data sent to reducer 4
+2024-04-17 17:18:26,001 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,002 INFO Data sent to reducer 6
+2024-04-17 17:18:26,004 INFO Data sent to reducer 3
+2024-04-17 17:18:26,006 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,007 INFO Data sent to reducer 5
+2024-04-17 17:18:26,061 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:26,134 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,135 INFO Data sent to reducer 1
+2024-04-17 17:18:26,158 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,158 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,159 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,161 INFO Data sent to reducer 4
+2024-04-17 17:18:26,162 INFO Data sent to reducer 5
+2024-04-17 17:18:26,166 INFO Data sent to reducer 2
+2024-04-17 17:18:26,169 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,170 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,171 INFO Data sent to reducer 6
+2024-04-17 17:18:26,175 INFO Data sent to reducer 3
+2024-04-17 17:18:26,258 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:26,362 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,363 INFO Data sent to reducer 1
+2024-04-17 17:18:26,379 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,380 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,384 INFO Data sent to reducer 3
+2024-04-17 17:18:26,386 INFO Data sent to reducer 2
+2024-04-17 17:18:26,394 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,395 INFO Data sent to reducer 4
+2024-04-17 17:18:26,425 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,426 INFO Data sent to reducer 5
+2024-04-17 17:18:26,441 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,443 INFO Data sent to reducer 6
+2024-04-17 17:18:26,480 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:26,586 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,587 INFO Data sent to reducer 1
+2024-04-17 17:18:26,628 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,630 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,632 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,633 INFO Data sent to reducer 4
+2024-04-17 17:18:26,636 INFO Data sent to reducer 2
+2024-04-17 17:18:26,638 INFO Data sent to reducer 3
+2024-04-17 17:18:26,639 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,641 INFO Data sent to reducer 6
+2024-04-17 17:18:26,644 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,645 INFO Data sent to reducer 5
+2024-04-17 17:18:26,701 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:26,795 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,796 INFO Data sent to reducer 4
+2024-04-17 17:18:26,816 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,817 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,818 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,819 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,820 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:26,821 INFO Data sent to reducer 6
+2024-04-17 17:18:26,821 INFO Data sent to reducer 5
+2024-04-17 17:18:26,823 INFO Data sent to reducer 2
+2024-04-17 17:18:26,824 INFO Data sent to reducer 1
+2024-04-17 17:18:26,826 INFO Data sent to reducer 3
+2024-04-17 17:18:26,876 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:27,042 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,043 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,044 INFO Data sent to reducer 1
+2024-04-17 17:18:27,045 INFO Data sent to reducer 2
+2024-04-17 17:18:27,116 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,118 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,118 INFO Data sent to reducer 4
+2024-04-17 17:18:27,123 INFO Data sent to reducer 3
+2024-04-17 17:18:27,182 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,183 INFO Data sent to reducer 5
+2024-04-17 17:18:27,199 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,200 INFO Data sent to reducer 6
+2024-04-17 17:18:27,285 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:27,397 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,398 INFO Data sent to reducer 1
+2024-04-17 17:18:27,419 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,424 INFO Data sent to reducer 2
+2024-04-17 17:18:27,436 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,441 INFO Data sent to reducer 3
+2024-04-17 17:18:27,457 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,459 INFO Data sent to reducer 4
+2024-04-17 17:18:27,484 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,485 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,486 INFO Data sent to reducer 5
+2024-04-17 17:18:27,487 INFO Data sent to reducer 6
+2024-04-17 17:18:27,619 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:27,758 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,759 INFO Data sent to reducer 1
+2024-04-17 17:18:27,763 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,764 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,766 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,764 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,766 INFO Data sent to reducer 5
+2024-04-17 17:18:27,767 INFO Data sent to reducer 4
+2024-04-17 17:18:27,771 INFO Data sent to reducer 3
+2024-04-17 17:18:27,773 INFO Data sent to reducer 2
+2024-04-17 17:18:27,840 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:27,841 INFO Data sent to reducer 6
+2024-04-17 17:18:27,901 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,001 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,002 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,003 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,004 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,004 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,006 INFO Data sent to reducer 4
+2024-04-17 17:18:28,007 INFO Data sent to reducer 5
+2024-04-17 17:18:28,010 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,011 INFO Data sent to reducer 6
+2024-04-17 17:18:28,012 INFO Data sent to reducer 2
+2024-04-17 17:18:28,013 INFO Data sent to reducer 3
+2024-04-17 17:18:28,014 INFO Data sent to reducer 1
+2024-04-17 17:18:28,070 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,170 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,172 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,173 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,173 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,175 INFO Data sent to reducer 4
+2024-04-17 17:18:28,175 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,176 INFO Data sent to reducer 1
+2024-04-17 17:18:28,178 INFO Data sent to reducer 2
+2024-04-17 17:18:28,178 INFO Data sent to reducer 5
+2024-04-17 17:18:28,182 INFO Data sent to reducer 3
+2024-04-17 17:18:28,188 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,189 INFO Data sent to reducer 6
+2024-04-17 17:18:28,238 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,326 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,328 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,328 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,329 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,330 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,331 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,331 INFO Data sent to reducer 4
+2024-04-17 17:18:28,332 INFO Data sent to reducer 5
+2024-04-17 17:18:28,334 INFO Data sent to reducer 1
+2024-04-17 17:18:28,335 INFO Data sent to reducer 2
+2024-04-17 17:18:28,336 INFO Data sent to reducer 6
+2024-04-17 17:18:28,337 INFO Data sent to reducer 3
+2024-04-17 17:18:28,401 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,494 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,495 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,496 INFO Data sent to reducer 1
+2024-04-17 17:18:28,500 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,505 INFO Data sent to reducer 2
+2024-04-17 17:18:28,509 INFO Data sent to reducer 3
+2024-04-17 17:18:28,527 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,528 INFO Data sent to reducer 4
+2024-04-17 17:18:28,576 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,577 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,578 INFO Data sent to reducer 6
+2024-04-17 17:18:28,579 INFO Data sent to reducer 5
+2024-04-17 17:18:28,650 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,743 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,744 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,744 INFO Data sent to reducer 1
+2024-04-17 17:18:28,752 INFO Data sent to reducer 2
+2024-04-17 17:18:28,755 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,760 INFO Data sent to reducer 3
+2024-04-17 17:18:28,798 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,799 INFO Data sent to reducer 4
+2024-04-17 17:18:28,822 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,824 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,824 INFO Data sent to reducer 5
+2024-04-17 17:18:28,826 INFO Data sent to reducer 6
+2024-04-17 17:18:28,877 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:28,976 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,977 INFO Data sent to reducer 1
+2024-04-17 17:18:28,978 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:28,984 INFO Data sent to reducer 2
+2024-04-17 17:18:28,986 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,000 INFO Data sent to reducer 3
+2024-04-17 17:18:29,005 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,006 INFO Data sent to reducer 4
+2024-04-17 17:18:29,053 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,054 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,055 INFO Data sent to reducer 5
+2024-04-17 17:18:29,057 INFO Data sent to reducer 6
+2024-04-17 17:18:29,103 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:29,229 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,229 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,230 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,232 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,233 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,233 INFO Data sent to reducer 1
+2024-04-17 17:18:29,234 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,237 INFO Data sent to reducer 4
+2024-04-17 17:18:29,237 INFO Data sent to reducer 6
+2024-04-17 17:18:29,239 INFO Data sent to reducer 5
+2024-04-17 17:18:29,240 INFO Data sent to reducer 2
+2024-04-17 17:18:29,241 INFO Data sent to reducer 3
+2024-04-17 17:18:29,306 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:29,443 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,444 INFO Data sent to reducer 1
+2024-04-17 17:18:29,469 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,469 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,475 INFO Data sent to reducer 3
+2024-04-17 17:18:29,478 INFO Data sent to reducer 2
+2024-04-17 17:18:29,482 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,484 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,485 INFO Data sent to reducer 4
+2024-04-17 17:18:29,486 INFO Data sent to reducer 5
+2024-04-17 17:18:29,503 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,504 INFO Data sent to reducer 6
+2024-04-17 17:18:29,592 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:29,720 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,722 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,723 INFO Data sent to reducer 1
+2024-04-17 17:18:29,725 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,728 INFO Data sent to reducer 2
+2024-04-17 17:18:29,731 INFO Data sent to reducer 3
+2024-04-17 17:18:29,731 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,732 INFO Data sent to reducer 4
+2024-04-17 17:18:29,755 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,756 INFO Data sent to reducer 5
+2024-04-17 17:18:29,767 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,768 INFO Data sent to reducer 6
+2024-04-17 17:18:29,856 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:29,958 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,959 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,960 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,960 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,962 INFO Data sent to reducer 4
+2024-04-17 17:18:29,963 INFO Data sent to reducer 1
+2024-04-17 17:18:29,966 INFO Data sent to reducer 3
+2024-04-17 17:18:29,968 INFO Data sent to reducer 2
+2024-04-17 17:18:29,970 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,972 INFO Data sent to reducer 5
+2024-04-17 17:18:29,981 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:29,982 INFO Data sent to reducer 6
+2024-04-17 17:18:30,042 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:30,214 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,215 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,216 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,217 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,219 INFO Data sent to reducer 4
+2024-04-17 17:18:30,217 INFO Data sent to reducer 1
+2024-04-17 17:18:30,220 INFO Data sent to reducer 2
+2024-04-17 17:18:30,221 INFO Data sent to reducer 3
+2024-04-17 17:18:30,246 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,247 INFO Data sent to reducer 5
+2024-04-17 17:18:30,259 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,260 INFO Data sent to reducer 6
+2024-04-17 17:18:30,302 INFO Mapper 3 received shard data: points.txt, 10, 15
+2024-04-17 17:18:30,483 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,483 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,484 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,488 INFO Data sent to reducer 4
+2024-04-17 17:18:30,484 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,489 INFO Data sent to reducer 2
+2024-04-17 17:18:30,493 INFO Data sent to reducer 1
+2024-04-17 17:18:30,494 INFO Data sent to reducer 3
+2024-04-17 17:18:30,525 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,526 INFO Mapper 3 send intermediate data to reducers
+2024-04-17 17:18:30,527 INFO Data sent to reducer 5
+2024-04-17 17:18:30,527 INFO Data sent to reducer 6
