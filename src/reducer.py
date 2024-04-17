@@ -10,6 +10,8 @@ from mapper_pb2_grpc import MapperStub
 from google.protobuf.empty_pb2 import Empty
 import os
 import logging
+import random
+
 
 def log(message):
     logging.info(message)
@@ -54,6 +56,10 @@ class ReducerServicer(ReducerServicer):
 
 
     def StartReduce(self, request, context):
+        
+        prob_failure = 0.1
+        if random.random() < prob_failure:
+            return ReducerResponse(result="Failed to start reduce phase", newcentroids=[])
 
         log(f"Reducer {self.reducer_id} started reduce phase")
 

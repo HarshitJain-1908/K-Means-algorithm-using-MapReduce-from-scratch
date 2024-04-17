@@ -11,6 +11,8 @@ import sys
 import signal
 import random
 import logging
+import time
+import threading
 
 
 if not(os.path.exists(f"dump")):
@@ -62,7 +64,8 @@ def start_map_phase(shard_map, centroids, num_reducers):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Submit tasks to thread pool
         futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
-
+        failed_mappers = []
+        available_mappers = []
         results = {}
         for future in concurrent.futures.as_completed(futures):
             mapper_id = futures[future]
@@ -70,6 +73,20 @@ def start_map_phase(shard_map, centroids, num_reducers):
                 result = future.result()
                 results[mapper_id] = result
                 log(f"Mapper {mapper_id} response: {result}")
+                
+                
+                if result == "Failed to process shard data":
+                    failed_mappers.append(futures[future])
+                    while result == "Failed to process shard data":
+                        future1 = executor.submit(map_data, mapper_id, shard_map[mapper_id][0], shard_map[mapper_id][1], shard_map[mapper_id][2], centroids, num_reducers)
+                        result = future1.result()
+                        time.sleep(0.5)
+                
+                elif result == "Processed shard data":
+                    available_mappers.append(futures[future])
+
+
+                
             except Exception as exc:
                 log(f'Mapper {mapper_id} generated an exception: {exc}')
         return results
@@ -92,6 +109,14 @@ def start_reduce_phase(mappers, num_reducers, og_centroids):
             reducer_id = futures[future]
             try:
                 result, new_centroids = future.result()
+                
+                if result == "Failed to start reduce phase":
+                    log(f"Reducer {reducer_id} failed to start reduce phase")
+                    while result == "Failed to start reduce phase":
+                        future1 = executor.submit(start_reduce, reducer_id, mappers)
+                        result, new_centroids = future1.result()
+                        time.sleep(0.5)
+                
                 all_new_centroids.extend(new_centroids)
                 log(f"Reducer {reducer_id} started reduce phase: {result}")
             except Exception as exc:
@@ -121,15 +146,36 @@ def start_reduce(reducer_id, mappers):
         response = stub.StartReduce(reduce_request)
         return response.result, response.newcentroids
 
+
+def signal_handler(sig, frame):
+    print("Received SIGTERM")
+    log("Received SIGTERM")
+    
 def has_converged(old_centroids, new_centroids, tolerance=0.01):
     return all(
         (abs(o.x - n.x) ** 2 + abs(o.y - n.y) ** 2) ** 0.5 < tolerance
         for o, n in zip(old_centroids, new_centroids)
     )
 
+def monitor_subprocesses(p):
+    while True:
+        for i, process in enumerate(p):
+            if process.poll() is not None:
+                print(f"Subprocess {i} has been terminated.")
+            else:
+                print(f"Subprocess {i} is still running.")
+        time.sleep(1)  # Wait for a second before checking again
+
+
+
 def main(num_mappers, num_reducers, num_centroids, max_iterations):
     p = []   
     mappers = []
+
+
+    monitor_thread = threading.Thread(target=monitor_subprocesses, args=(p,), daemon=True)
+    monitor_thread.start()
+
 
     for i in range(num_mappers):
         # s = subprocess.Popen("exec " + cmd, stdout=subprocess.PIPE, shell=True)
@@ -138,12 +184,18 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
         mappers.append(('localhost', 6001 + i))
         p.append(s)
         log(f"Mapper {i} started with PID {s.pid}")
+        print(f"Mapper {i} started with PID {s.pid}")
     for i in range(num_reducers):
         # s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7000 + i}"], stdout=subprocess.PIPE, shell=True)
         s = subprocess.Popen(["python3", "reducer.py", f"localhost:{7001 + i}"])
         p.append(s)
         log(f"Reducer {i} started with PID {s.pid}")
-
+        print(f"Reducer {i} started with PID {s.pid}")
+    
+    for process in p:
+        #print(subprocess.Popen.poll(process.pid), process.pid)
+        print(process.poll(), process.pid)
+    
     centroids = []
     input_points = open('./data/input/points.txt', 'r').readlines()
     num_points = len(input_points)
@@ -192,4 +244,5 @@ def main(num_mappers, num_reducers, num_centroids, max_iterations):
         process.terminate()
 
 if __name__ == "__main__":
-    main(num_mappers = 4, num_reducers = 2, num_centroids = 5, max_iterations = 50)
+    signal.signal(signal.SIGTERM, signal_handler)
+    main(num_mappers = 4, num_reducers = 2, num_centroids = 2, max_iterations = 50)
