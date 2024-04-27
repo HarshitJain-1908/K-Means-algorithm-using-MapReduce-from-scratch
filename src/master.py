@@ -14,6 +14,7 @@ import logging
 import time
 import threading
 
+p = []
 
 if not(os.path.exists(f"dump")):
     os.makedirs(f"dump")
@@ -61,8 +62,11 @@ def create_shards(num_mappers):
 def start_map_phase(shard_map, centroids, num_reducers):
     log("Starting map phase...")
     # Create a ThreadPoolExecutor
+    
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Submit tasks to thread pool
+        monitor_thread = threading.Thread(target=monitor_subprocesses, args=(p,shard_map, centroids, num_reducers,executor), daemon=True)
+        monitor_thread.start()
         futures = {executor.submit(map_data, mapper_id, shard_file, start, end, centroids, num_reducers): mapper_id for mapper_id, (shard_file, start, end) in shard_map.items()}
         failed_mappers = []
         available_mappers = []
@@ -157,11 +161,14 @@ def has_converged(old_centroids, new_centroids, tolerance=0.01):
         for o, n in zip(old_centroids, new_centroids)
     )
 
-def monitor_subprocesses(p):
+def monitor_subprocesses(p,shard_map, centroids, num_reducers,executor):
     while True:
         for i, process in enumerate(p):
             if process.poll() is not None:
                 print(f"Subprocess {i} has been terminated.")
+                print(shard_map)
+                # subprocess.Popen(["python3", "mapper.py", f"localhost:{6001 + i}"])
+                map_data(1, shard_map[i+1][0], shard_map[i+1][1], shard_map[i+1][2], centroids, num_reducers)
             else:
                 print(f"Subprocess {i} is still running.")
         time.sleep(1)  # Wait for a second before checking again
@@ -169,12 +176,12 @@ def monitor_subprocesses(p):
 
 
 def main(num_mappers, num_reducers, num_centroids, max_iterations):
-    p = []   
+       
     mappers = []
+    global p
 
-
-    monitor_thread = threading.Thread(target=monitor_subprocesses, args=(p,), daemon=True)
-    monitor_thread.start()
+    # monitor_thread = threading.Thread(target=monitor_subprocesses, args=(p,), daemon=True)
+    # monitor_thread.start()
 
 
     for i in range(num_mappers):

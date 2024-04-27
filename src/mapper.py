@@ -24,7 +24,7 @@ class MapperServicer(MapperServicer):
                     filemode='w')
         
     def MapData(self, request, context):
-        prob_failure = 0.4
+        prob_failure = 0
         if random.random() < prob_failure:
             return MapperResponse(result="Failed to process shard data")
         # Implement the logic to process the shard data in the mapper
@@ -67,7 +67,7 @@ class MapperServicer(MapperServicer):
             os.remove(os.path.join(f"data/Mappers/M{self.mapper_id}", f))
         
         for r in range(1, R+1):
-            open(f"data/Mappers/M{self.mapper_id}/partition_{r}.txt", "w")
+            open(f"data/Mappers/M{self.mapper_id}/partition_{r}.txt", "a")
 
         for k, values in kv_pairs.items():
             partition = k % R + 1
@@ -105,10 +105,15 @@ def nearest_centroid(coords, centroids):
     return nc_key
             
 def serve(port):
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    mapper = MapperServicer(port, int(port) - 6000)
-    add_MapperServicer_to_server(mapper, server)
-    server.add_insecure_port(f"[::]:{port}")
+    try:
+        server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+        mapper = MapperServicer(port, int(port) - 6000)
+        add_MapperServicer_to_server(mapper, server)
+        server.add_insecure_port(f"[::]:{port}")
+        
+    except Exception as e:
+        pass
+
     server.start()
     server.wait_for_termination()
 
